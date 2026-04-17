@@ -1,7 +1,29 @@
-langchain>=0.2.0
-langchain-community>=0.2.0
-langchain-openai>=0.1.0
-langchain-chroma>=0.1.0
-pypdf>=4.0.0
-unstructured>=0.12.0
+# --- Core backend ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+pydantic-settings>=2.0.0
 python-dotenv>=1.0.0
+python-multipart>=0.0.18
+sse-starlette>=2.0.0
+
+# --- RAG / LangChain ---
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.3.0
+langchain-chroma>=0.2.0
+
+# --- Vector store ---
+chromadb>=0.6.0
+
+# --- Document loaders ---
+pypdf>=4.0.0
+unstructured>=0.16.0
+
+# --- Data source connectors (Phase 2) ---
+atlassian-python-api>=3.41.0    # Confluence connector
+gitpython>=3.1.0                # Git repo connector
+
+# --- Advanced retrieval (Phase 5) ---
+# rank-bm25>=0.2.2             # Hybrid search (uncomment when needed)
+# sentence-transformers>=3.0.0  # Cross-encoder reranking (uncomment when needed)
+# mempalace>=3.3.0              # Conversation memory (uncomment when needed)
