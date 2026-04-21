@@ -1,6 +1,13 @@
 ### Introduction
 This is a Query repo of WTG internal content, used with RAG framework.
 
+## Project Plan
+
+Full project plan with architecture, phased implementation steps, tech stack, and team collaboration guide:
+
+- **English**: [Plan.md](Plan.md)
+- **中文版**: [Plan_Chinese.md](Plan_Chinese.md)
+
 ## Quick Start
 
 ```bash

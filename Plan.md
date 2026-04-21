@@ -16,6 +16,7 @@
 - [Target Directory Structure](#target-directory-structure)
 - [Verification Checklist](#verification-checklist)
 - [Key Decisions](#key-decisions)
+- [Team Collaboration Plan](#team-collaboration-plan)
 - [Open Questions](#open-questions)
 
 ---
@@ -85,10 +86,11 @@ Build a full-stack RAG Q&A system that allows WiseTechGlobal employees to ask na
 | | Vite | 6.x | Build tool & dev server |
 | | Ant Design *or* Shadcn/ui | latest | UI component library |
 | | Tailwind CSS | 4.x | Utility-first styling |
-| **Backend** | Python | 3.11+ | Runtime |
+| **Backend** | Python | 3.12 | Runtime (via conda `RAG` env) |
 | | FastAPI | 0.115+ | REST API framework |
 | | Uvicorn | 0.34+ | ASGI server |
 | | Pydantic | 2.x | Config & validation |
+| | Miniconda | latest | Python environment & package management |
 | **RAG** | LangChain | >=0.3 | Orchestration framework |
 | | LangChain Community | >=0.3 | Data source loaders |
 | | LangChain OpenAI | >=0.3 | OpenAI/Azure/GitHub Models integration |
@@ -115,27 +117,53 @@ The existing `rag.py` is already LangChain-based — keeping it avoids a rewrite
 
 ## Local Prerequisites & Tool Installation
 
-Install the following tools **before starting development**. All commands below use WSL (Ubuntu/Debian). If you haven't enabled WSL yet, run `wsl --install` from a Windows terminal first.
+Install the following tools **before starting development**. All commands below use WSL (Ubuntu/Debian). **WSL, Git, and Miniconda are already installed** — skip those steps.
 
-### 1. Python 3.11+
+### Conda Environment Setup (RAG)
 
-The backend runtime. Required for FastAPI, LangChain, and all Python dependencies.
+All Python dependencies for this project are managed in a single conda environment called `RAG`.
 
 ```bash
-# Check existing version
-python3 --version
+# 1. Create the RAG environment (one-time)
+conda create -n RAG python=3.12 -y
 
-# Install on Ubuntu/Debian (WSL)
-sudo apt update && sudo apt install -y python3 python3-pip python3-venv
+# 2. Activate the environment
+conda activate RAG
 
-# Or install a specific version via deadsnakes PPA
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update && sudo apt install -y python3.12 python3.12-venv python3.12-dev
+# 3. Verify
+python --version   # → Python 3.12.x
+which python       # → ~/miniconda3/envs/RAG/bin/python
 ```
 
-**Verify**: `python3 --version` → `Python 3.12.x`
+**Daily workflow** — every time you open a new WSL terminal for this project:
 
-### 2. Node.js 20+ & npm
+```bash
+# Enter WSL (from Windows terminal, if not already in WSL)
+wsl
+
+# Activate the conda environment
+conda activate RAG
+
+# Navigate to the project
+cd ~/git/WTG.Query.RAG
+```
+
+**Installing packages** inside the RAG environment:
+
+```bash
+# Preferred: use pip inside the conda env (best compatibility with PyPI-only packages)
+pip install <package>
+
+# Or use conda for packages available in conda-forge
+conda install -c conda-forge <package>
+
+# Install all project dependencies from requirements.txt
+pip install -r requirements.txt
+```
+
+> **Note**: Most LangChain / FastAPI / ChromaDB packages are PyPI-only, so `pip install` inside the conda env is the standard approach. Use `conda install` only for packages that benefit from conda's binary builds (e.g., `numpy`, `scipy`, `sentence-transformers`).
+
+### 1. Node.js 20+ & npm
 
 Required for the React frontend build toolchain (Vite, TypeScript, etc.).
 
@@ -153,18 +181,7 @@ sudo apt install -y nodejs
 
 **Verify**: `node --version` → `v20.x.x` and `npm --version` → `10.x.x`
 
-### 3. Git
-
-Version control. Almost certainly already installed in WSL.
-
-```bash
-git --version
-
-# If not installed:
-sudo apt install -y git
-```
-
-### 4. Docker
+### 2. Docker
 
 Required for containerization (Phase 4) and running ChromaDB as a container during development.
 
@@ -193,22 +210,7 @@ newgrp docker
 
 **Verify**: `docker --version` and `docker compose version`
 
-### 5. uv (Recommended Python Package Manager)
-
-A fast Python package manager that replaces pip + venv. Optional but strongly recommended.
-
-```bash
-# Install via standalone installer (recommended)
-curl -LsSf https://astral.sh/uv/install.sh | sh
-source ~/.bashrc
-
-# Or via pip
-pip install uv
-```
-
-**Verify**: `uv --version`
-
-### 6. Ollama (Optional — for Local LLM)
+### 3. Ollama (Optional — for Local LLM)
 
 Only needed if you want to run LLMs locally without cloud API calls.
 
@@ -226,7 +228,7 @@ ollama pull nomic-embed-text    # local embedding model
 
 **Verify**: `ollama --version` and `ollama list`
 
-### 7. kubectl & Helm (Optional — for K8S, Phase 4)
+### 4. kubectl & Helm (Optional — for K8S, Phase 4)
 
 Only needed when deploying to Kubernetes.
 
@@ -244,13 +246,14 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 ### Tool Summary Table
 
-| Tool | Required? | Phase Needed | Install Command (WSL / bash) |
+| Tool | Status | Phase Needed | Notes |
 |---|---|---|---|
-| Python 3.11+ | **Yes** | Phase 1+ | `sudo apt install -y python3 python3-pip python3-venv` |
-| Node.js 20+ | **Yes** | Phase 3+ | `nvm install --lts` (via nvm) |
-| Git | **Yes** | All | `sudo apt install -y git` |
-| Docker | **Yes** | Phase 4+ (optional earlier) | Docker Desktop WSL integration or `docker-ce` in WSL |
-| uv | Recommended | Phase 1+ | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| WSL | **Already installed** | All | — |
+| Git | **Already installed** | All | — |
+| Miniconda | **Already installed** | All | Manages the `RAG` conda environment |
+| Python 3.12 | Via conda `RAG` env | Phase 1+ | `conda create -n RAG python=3.12` |
+| Node.js 20+ | **To install** | Phase 3+ | `nvm install --lts` |
+| Docker | **To install** | Phase 4+ (optional earlier) | Docker Desktop WSL integration or `docker-ce` in WSL |
 | Ollama | Optional | Phase 1+ (if local LLM) | `curl -fsSL https://ollama.com/install.sh \| sh` |
 | kubectl | Optional | Phase 4 (K8S only) | `curl -LO ... && sudo install kubectl` |
 | Helm | Optional | Phase 4 (K8S only) | `curl ... \| bash` (get-helm-3) |
@@ -298,17 +301,21 @@ dependencies = [
 **How to bootstrap**:
 
 ```bash
+# Ensure you are in the conda RAG environment
+conda activate RAG
+
 cd ~/git/WTG.Query.RAG
 mkdir -p backend/app/api/routes
 mkdir -p backend/app/services
 mkdir -p backend/app/connectors
 
-# Initialize with uv (recommended)
-cd backend
-uv init --name wtg-query-rag
-uv add fastapi uvicorn langchain langchain-community langchain-openai \
-  langchain-chroma chromadb pypdf python-dotenv sse-starlette \
-  python-multipart pydantic-settings
+# Install all dependencies into the RAG conda env
+pip install fastapi "uvicorn[standard]" pydantic-settings \
+  langchain langchain-community langchain-openai langchain-chroma \
+  chromadb pypdf python-dotenv sse-starlette python-multipart
+
+# Or install from the project requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Step 1.2 — FastAPI Application
@@ -347,6 +354,7 @@ data: {}
 **How to run** (development):
 
 ```bash
+conda activate RAG
 cd backend
 uvicorn app.main:app --reload --port 8000
 ```
@@ -432,6 +440,7 @@ CHUNK_OVERLAP=200
 
 ```bash
 # Start the backend
+conda activate RAG
 cd backend
 uvicorn app.main:app --reload --port 8000
 
@@ -500,7 +509,8 @@ Pull pages from Atlassian Confluence spaces and index them.
 **Key dependency**: `atlassian-python-api` (add to `pyproject.toml`)
 
 ```bash
-uv add atlassian-python-api
+conda activate RAG
+pip install atlassian-python-api
 ```
 
 ### Step 2.3 — Source Code Repository Connector
@@ -527,7 +537,8 @@ Index source code from WTG Git repositories for code-aware search.
 **Key dependency**: `gitpython` (add to `pyproject.toml`)
 
 ```bash
-uv add gitpython
+conda activate RAG
+pip install gitpython
 ```
 
 ### Step 2.4 — ediProd Work Items Connector
@@ -734,8 +745,8 @@ Create Dockerfiles and a Compose configuration for the full stack.
 ```dockerfile
 FROM python:3.12-slim
 WORKDIR /app
-COPY pyproject.toml uv.lock* ./
-RUN pip install uv && uv sync --no-dev
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ ./app/
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
@@ -869,8 +880,9 @@ Use [MemPalace](https://github.com/MemPalace/mempalace) as a conversation memory
 **What to do**:
 
 ```bash
-# Install
-uv add mempalace
+# Install into the RAG conda env
+conda activate RAG
+pip install mempalace
 
 # Initialize palace
 mempalace init ./mempalace_data
@@ -902,7 +914,8 @@ Improve retrieval quality by combining semantic vector search with traditional k
 **Key dependency**: `rank-bm25`
 
 ```bash
-uv add rank-bm25
+conda activate RAG
+pip install rank-bm25
 ```
 
 ### Step 5.3 — Cross-Encoder Reranking
@@ -919,7 +932,9 @@ Add a reranking step after retrieval to improve precision.
 **Key dependency**: `sentence-transformers`
 
 ```bash
-uv add sentence-transformers
+# sentence-transformers benefits from conda's binary builds
+conda activate RAG
+conda install -c conda-forge sentence-transformers
 ```
 
 ### Step 5.4 — UX Improvements
@@ -1062,6 +1077,105 @@ WTG.Query.RAG/
 | Authentication | **Deferred** | No auth in initial phases; add SSO/LDAP when needed |
 | Deployment | **Docker Compose first** | Sufficient for small scale; K8S available when needed |
 | LLM | **Flexible (env-configurable)** | Start with GitHub Models/OpenAI; Ollama for fully local option |
+
+---
+
+## Team Collaboration Plan
+
+This project is designed for **two developers** working in parallel. The split follows a **vertical (feature-based)** model rather than horizontal (frontend vs backend), so that **both developers gain end-to-end RAG knowledge** — from document ingestion through vectorization, retrieval, LLM generation, streaming, to frontend rendering.
+
+### Guiding Principles
+
+- **Cross-cutting ownership** — each person builds at least one complete connector, one API route, and one frontend page
+- **Cross review** — all PRs are reviewed by the other person
+- **Swap & Explain** — at the end of each Phase, each person walks the other through their code
+- **Phase 1 completes before Phase 2/3 begin** — Phase 1 is the foundation; Phase 2 and Phase 3 can then run in parallel
+
+### Phase 1 — Backend API Foundation
+
+| Module | Person A | Person B |
+|---|---|---|
+| **FastAPI skeleton** | | `main.py`, CORS, router registration, `config.py` (Pydantic Settings) |
+| **LLM layer** | `llm_service.py` (multi-provider factory), `rag_service.py` (LCEL chain + streaming) | |
+| **Data layer** | | `vectorstore_service.py`, `document_service.py` (chunking) |
+| **API routes** | `chat.py` (POST /api/chat, SSE streaming) | `health.py`, `documents.py` (upload/list/delete) |
+
+**Learning outcome**: A masters LLM integration + RAG chain construction + SSE streaming; B masters vector store operations + document processing + API design.
+
+**Checkpoint**: A explains LCEL chain and streaming internals to B; B explains ChromaDB operations and chunking strategy to A.
+
+### Phase 2 — Data Source Connectors
+
+| Module | Person A | Person B |
+|---|---|---|
+| **Connector base class** | `base_connector.py` (co-design the interface together) | |
+| **File Connector** | `file_connector.py` (refactor from `rag.py`) | |
+| **Code Connector** | `code_connector.py` (Language-aware splitter) | |
+| **Confluence Connector** | | `confluence_connector.py` (LangChain ConfluenceLoader) |
+| **ediProd Connector** | | `ediprod_connector.py` (mock → real API) |
+| **Ingestion Orchestrator** | | `ingestion_service.py` (dispatch + status tracking) |
+| **Ingestion API routes** | `/api/ingest/files`, `/api/ingest/repository` | `/api/ingest/confluence`, `/api/ingest/ediprod`, `/api/ingest/status` |
+
+**Learning outcome**: Both developers write connectors covering the full ingestion pipeline (fetch → chunk → embed → store). A focuses on code-aware splitting; B focuses on external system integration.
+
+### Phase 3 — React Frontend
+
+| Module | Person A | Person B |
+|---|---|---|
+| **Project scaffolding** | Vite + React + Tailwind + Zustand initialization | |
+| **Chat page** | `ChatPage.tsx`, `ChatMessage.tsx`, `ChatInput.tsx`, `SourceCitation.tsx` | |
+| **SSE client** | `api/chat.ts` (EventSource / ReadableStream) | |
+| **Document management page** | | `DocumentsPage.tsx`, `DocumentUpload.tsx` |
+| **Ingestion controls** | | Sync buttons + status polling |
+| **API client foundation** | | `api/client.ts`, `api/documents.ts` |
+
+**Learning outcome**: A masters SSE streaming consumption + Markdown rendering; B masters file upload + async job status management. Both learn React + TypeScript.
+
+### Phase 4 — Containerization (Pair Programming)
+
+This phase is best done together via **pair programming**:
+
+- A leads: `backend/Dockerfile` + `docker-compose.yml`
+- B leads: `frontend/Dockerfile` + `nginx.conf`
+- Debug and integration test together
+
+**Rationale**: Docker and deployment knowledge is important for both developers, and the workload is small enough that pairing is more efficient than splitting.
+
+### Phase 5 — Enhancements
+
+| Module | Person A | Person B |
+|---|---|---|
+| **Hybrid Search** | BM25 + EnsembleRetriever (vector + keyword) | |
+| **Cross-Encoder Reranking** | sentence-transformers reranker | |
+| **MemPalace Integration** | | `memory_service.py` (store/retrieve Q&A cache) |
+| **MemPalace → RAG wiring** | | Modify `rag_service.py`: check memory first → fall back to full RAG |
+| **UX enhancements** | | "From memory" badge, feedback buttons |
+| **Quality evaluation** | Build test question set; compare with/without reranking | Build test question set; compare with/without memory cache response time |
+
+### Knowledge Coverage Matrix
+
+| RAG Concept | Person A | Person B |
+|---|---|---|
+| LLM integration (multi-provider) | ✅ Phase 1 lead | 📖 Phase 1 review |
+| RAG Chain (LCEL) | ✅ Phase 1 lead | ✅ Phase 5 modifies rag_service |
+| Embedding + vector store | 📖 Phase 1 review | ✅ Phase 1 lead |
+| Document chunking | ✅ Phase 2 (code-aware) | ✅ Phase 1 (general) |
+| Data connector development | ✅ Phase 2 (file + code) | ✅ Phase 2 (confluence + ediprod) |
+| SSE streaming (backend) | ✅ Phase 1 chat route | 📖 Review |
+| SSE streaming (frontend) | ✅ Phase 3 chat UI | 📖 Review |
+| React frontend | ✅ Phase 3 (chat) | ✅ Phase 3 (document mgmt) |
+| Docker deployment | ✅ Phase 4 pair | ✅ Phase 4 pair |
+| Retrieval enhancement (hybrid/rerank) | ✅ Phase 5 lead | 📖 Review |
+| Conversation memory (MemPalace) | 📖 Review | ✅ Phase 5 lead |
+
+✅ = Leads implementation &nbsp;&nbsp; 📖 = Learns via code review + walkthrough
+
+### Collaboration Rules
+
+1. **Swap & Explain** — At the end of each Phase, each person presents their code to the other. This is the primary knowledge transfer mechanism.
+2. **Mandatory cross-review** — A's PRs are reviewed by B, and vice versa. No self-merging.
+3. **Sequential start, parallel continuation** — Complete Phase 1 together first. Then Phase 2 and Phase 3 can proceed in parallel.
+4. **Shared design decisions** — Both developers co-design the `base_connector.py` interface and the SSE event format before independent implementation.
 
 ---
 
