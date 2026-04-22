@@ -37,7 +37,7 @@
 **关键特性**：
 
 - 本地优先 — 所有数据和模型可在内网运行，除非明确配置否则不会向外传输数据
-- LLM 不可知 — 通过单一环境变量即可在 OpenAI、Azure OpenAI、GitHub Models 或本地 Ollama 模型之间切换
+- LLM 不可知 — 通过单一环境变量即可在 OpenAI、Azure OpenAI、GitHub Models 或本地模型（Ollama 或 vLLM）之间切换
 - 初始小规模 — 不超过 1,000 份文档，不超过 10 个并发用户
 - 初始阶段不设身份认证（后续补充）
 
@@ -98,7 +98,9 @@
 | **嵌入模型** | text-embedding-3-large（*默认*） | — | OpenAI 嵌入模型 |
 | | bge-m3 / multilingual-e5-large（*可选*） | — | 本地多语言替代方案 |
 | **LLM** | GPT-4o（*默认*） | — | 云端 LLM |
-| | Llama 3 / Qwen 2.5 / Mistral（*可选*） | — | 通过 Ollama 运行的本地 LLM |
+| | Llama 3 / Qwen 2.5 / Mistral（*可选*） | — | 通过 Ollama（开发）或 vLLM（生产）运行的本地 LLM |
+| **本地 LLM 服务器** | Ollama | latest | 简单易用的本地推理（CPU/GPU） |
+| | vLLM | >=0.6 | 高吞吐量 GPU 推理服务器（生产环境） |
 | **记忆** | MemPalace（*阶段五*） | >=3.3 | 对话记忆与缓存 |
 | **基础设施** | Docker | 27.x | 容器化 |
 | | Docker Compose | 2.x | 本地多容器编排 |
@@ -210,9 +212,32 @@ newgrp docker
 
 **验证**：`docker --version` 和 `docker compose version`
 
-### 3. Ollama（可选 — 用于本地 LLM）
+### 3. 本地 LLM 服务器（可选 — Ollama 或 vLLM）
 
-仅在需要完全本地运行 LLM 而不使用云端 API 时需要。
+仅在需要完全本地运行 LLM 而不使用云端 API 时需要。根据硬件和使用场景**选择其一**。
+
+#### Ollama vs vLLM 多维对比
+
+| 维度 | Ollama | vLLM |
+|---|---|---|
+| **安装复杂度** | 一行命令，零配置 | 需要 CUDA + Python 环境 |
+| **硬件要求** | CPU 或 GPU（Apple Silicon、NVIDIA） | **必须 NVIDIA GPU**（CUDA） |
+| **吞吐量** | 单请求良好；并发时性能下降 | PagedAttention 优化；高并发表现优异 |
+| **单请求延迟** | 低 | 低（冷启动略高） |
+| **模型管理** | `ollama pull` 一键下载 | 需手动从 HuggingFace 下载权重 |
+| **量化支持** | 内置 GGUF（Q4、Q5、Q8） | GPTQ / AWQ / FP16 — GPU 显存利用更高效 |
+| **API 兼容性** | OpenAI 兼容（`/v1/chat/completions`） | OpenAI 兼容（`/v1/chat/completions`） |
+| **嵌入模型支持** | 内置（`/api/embeddings`） | 通过 `--served-model-name` 参数 |
+| **多 GPU 支持** | 有限 | 原生张量并行跨 GPU |
+| **连续批处理** | 不支持 | 支持 — 生产吞吐的关键 |
+| **适合场景** | 开发、个人使用、小规模、无 GPU | 生产部署、多用户并发访问 |
+
+**使用建议**：
+- **开发环境 / 无 GPU** → Ollama（零门槛上手）
+- **生产部署 / 有 GPU 服务器** → vLLM（更高吞吐量，规模化后单请求成本更低）
+- 两者都暴露 OpenAI 兼容 API，切换时仅需修改 `LLM_PROVIDER` 和 base URL。
+
+#### 方案 A — Ollama
 
 ```bash
 # 安装 Ollama
@@ -227,6 +252,34 @@ ollama pull nomic-embed-text    # 本地嵌入模型
 ```
 
 **验证**：`ollama --version` 和 `ollama list`
+
+#### 方案 B — vLLM
+
+> **前提条件**：NVIDIA GPU，CUDA 12.1+，7B 模型至少 16 GB 显存（14B+ 需要 24+ GB）。
+
+```bash
+# 将 vLLM 安装到 RAG conda 环境
+conda activate RAG
+pip install vllm
+
+# 启动 vLLM（OpenAI 兼容 API）
+python -m vllm.entrypoints.openai.api_server \
+  --model meta-llama/Llama-3.1-8B-Instruct \
+  --host 0.0.0.0 \
+  --port 8100 \
+  --max-model-len 8192
+
+# 使用量化模型（更少显存）：
+python -m vllm.entrypoints.openai.api_server \
+  --model TheBloke/Llama-3.1-8B-Instruct-GPTQ \
+  --quantization gptq \
+  --host 0.0.0.0 \
+  --port 8100
+```
+
+**验证**：`curl http://localhost:8100/v1/models` — 应列出已加载的模型
+
+> **注意**：vLLM 模型权重从 HuggingFace 下载。对于受限模型（如 Llama 3），可能需要 `huggingface-cli login`。设置 `HF_HOME` 可控制下载缓存目录。
 
 ### 4. kubectl 与 Helm（可选 — 用于 K8S，阶段四）
 
@@ -254,7 +307,8 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 | Python 3.12 | 通过 conda `RAG` 环境 | 阶段 1+ | `conda create -n RAG python=3.12` |
 | Node.js 20+ | **待安装** | 阶段 3+ | `nvm install --lts` |
 | Docker | **待安装** | 阶段 4+（更早亦可） | Docker Desktop WSL 集成或 WSL 内 `docker-ce` |
-| Ollama | 可选 | 阶段 1+（如使用本地 LLM） | `curl -fsSL https://ollama.com/install.sh \| sh` |
+| Ollama | 可选 | 阶段 1+（如使用本地 LLM） | `curl -fsSL https://ollama.com/install.sh \| sh` — 简单开发环境 |
+| vLLM | 可选 | 阶段 1+（如使用本地 LLM） | `pip install vllm` — 需要 NVIDIA GPU，高吞吐生产环境 |
 | kubectl | 可选 | 阶段 4（仅 K8S） | `curl -LO ... && sudo install kubectl` |
 | Helm | 可选 | 阶段 4（仅 K8S） | `curl ... \| bash` (get-helm-3) |
 
@@ -391,9 +445,12 @@ uvicorn app.main:app --reload --port 8000
 | `openai` | `ChatOpenAI` | `OpenAIEmbeddings` | `OPENAI_API_KEY` | 直接 OpenAI API |
 | `azure` | `AzureChatOpenAI` | `AzureOpenAIEmbeddings` | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_DEPLOYMENT` | 企业 Azure 部署 |
 | `github` | `ChatOpenAI`（自定义 base_url） | `OpenAIEmbeddings`（自定义 base_url） | `GITHUB_TOKEN` | GitHub Models 端点（当前默认） |
-| `ollama` | `ChatOllama` | `OllamaEmbeddings` | `OLLAMA_BASE_URL`（默认 `http://localhost:11434`） | 完全本地，无需 API 密钥 |
+| `ollama` | `ChatOllama` | `OllamaEmbeddings` | `OLLAMA_BASE_URL`（默认 `http://localhost:11434`） | 完全本地，无需 API 密钥，简单易用 |
+| `vllm` | `ChatOpenAI`（自定义 base_url） | `OpenAIEmbeddings`（自定义 base_url） | `VLLM_BASE_URL`（默认 `http://localhost:8100/v1`） | 完全本地，无需 API 密钥，高吞吐 GPU 推理 |
 
 `llm_service.py` 的工厂方法根据此配置返回正确的 LangChain LLM 和嵌入实例。所有下游代码对提供商无感知。
+
+> **注意**：`vllm` 提供商复用与 `github` 提供商相同的 `ChatOpenAI` / `OpenAIEmbeddings` 类，只是 `base_url` 指向本地 vLLM 服务器。这意味着零额外 LangChain 依赖。
 
 ### 步骤 1.5 — 配置管理
 
@@ -407,7 +464,7 @@ uvicorn app.main:app --reload --port 8000
 **`.env.example` 示例**：
 
 ```env
-# LLM 提供商: openai | azure | github | ollama
+# LLM 提供商: openai | azure | github | ollama | vllm
 LLM_PROVIDER=github
 
 # GitHub Models（默认）
@@ -423,6 +480,10 @@ GITHUB_TOKEN=your_github_token_here
 
 # Ollama（如 LLM_PROVIDER=ollama）
 # OLLAMA_BASE_URL=http://localhost:11434
+
+# vLLM（如 LLM_PROVIDER=vllm）
+# VLLM_BASE_URL=http://localhost:8100/v1
+# VLLM_MODEL_NAME=meta-llama/Llama-3.1-8B-Instruct
 
 # 模型名称
 MODEL_NAME=gpt-4o
@@ -1077,7 +1138,7 @@ WTG.Query.RAG/
 | 前端框架 | **React + TypeScript + Vite** | 按需求指定；快速开发体验，大生态系统 |
 | 身份认证 | **延后** | 初始阶段不设认证；需要时添加 SSO/LDAP |
 | 部署 | **先 Docker Compose** | 小规模足够；需要时可用 K8S |
-| LLM | **灵活（环境变量配置）** | 默认 GitHub Models/OpenAI；Ollama 用于完全本地 |
+| LLM | **灵活（环境变量配置）** | 默认 GitHub Models/OpenAI；Ollama（开发）或 vLLM（生产）用于完全本地 |
 
 ---
 
