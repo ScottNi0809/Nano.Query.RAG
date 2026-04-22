@@ -37,7 +37,7 @@ Build a full-stack RAG Q&A system that allows WiseTechGlobal employees to ask na
 **Key properties**:
 
 - Local-first — all data and models can run on-premises, nothing leaves the network unless explicitly configured
-- LLM-agnostic — swap between OpenAI, Azure OpenAI, GitHub Models, or a fully local Ollama model via a single env variable
+- LLM-agnostic — swap between OpenAI, Azure OpenAI, GitHub Models, or a fully local model (Ollama or vLLM) via a single env variable
 - Small scale initially — fewer than 1,000 documents, fewer than 10 concurrent users
 - No authentication in initial phases (deferred)
 
@@ -98,7 +98,9 @@ Build a full-stack RAG Q&A system that allows WiseTechGlobal employees to ask na
 | **Embedding** | text-embedding-3-large *(default)* | — | OpenAI embedding model |
 | | bge-m3 / multilingual-e5-large *(optional)* | — | Local multilingual alternative |
 | **LLM** | GPT-4o *(default)* | — | Cloud LLM |
-| | Llama 3 / Qwen 2.5 / Mistral *(optional)* | — | Local LLM via Ollama |
+| | Llama 3 / Qwen 2.5 / Mistral *(optional)* | — | Local LLM via Ollama (dev) or vLLM (production) |
+| **Local LLM Server** | Ollama | latest | Easy single-command local inference (CPU/GPU) |
+| | vLLM | >=0.6 | High-throughput GPU inference server (production) |
 | **Memory** | MemPalace *(Phase 5)* | >=3.3 | Conversation memory & caching |
 | **Infra** | Docker | 27.x | Containerization |
 | | Docker Compose | 2.x | Local multi-container orchestration |
@@ -210,9 +212,32 @@ newgrp docker
 
 **Verify**: `docker --version` and `docker compose version`
 
-### 3. Ollama (Optional — for Local LLM)
+### 3. Local LLM Server (Optional — Ollama or vLLM)
 
-Only needed if you want to run LLMs locally without cloud API calls.
+Only needed if you want to run LLMs locally without cloud API calls. Choose **one** based on your hardware and use case.
+
+#### Ollama vs vLLM Comparison
+
+| Dimension | Ollama | vLLM |
+|---|---|---|
+| **Installation** | One command, zero config | Requires CUDA + Python environment |
+| **Hardware** | CPU or GPU (Apple Silicon, NVIDIA) | **NVIDIA GPU required** (CUDA) |
+| **Throughput** | Good for single requests; degrades under concurrency | PagedAttention optimization; excels at concurrent requests |
+| **Latency (single)** | Low | Low (slightly higher cold-start) |
+| **Model Management** | `ollama pull` one-click download | Manual HuggingFace weight download |
+| **Quantization** | Built-in GGUF (Q4, Q5, Q8) | GPTQ / AWQ / FP16 — more efficient GPU VRAM usage |
+| **API Compatibility** | OpenAI-compatible (`/v1/chat/completions`) | OpenAI-compatible (`/v1/chat/completions`) |
+| **Embedding Support** | Built-in (`/api/embeddings`) | Via `--served-model-name` flag |
+| **Multi-GPU** | Limited | Native tensor parallelism across GPUs |
+| **Continuous Batching** | No | Yes — key for production throughput |
+| **Best For** | Development, personal use, small scale, no GPU | Production deployment, multi-user concurrent access |
+
+**Recommendation**:
+- **Development / no GPU** → Ollama (zero friction to start)
+- **Production / GPU server** → vLLM (higher throughput, lower per-request cost at scale)
+- Both expose OpenAI-compatible APIs, so switching between them only requires changing `LLM_PROVIDER` and the base URL.
+
+#### Option A — Ollama
 
 ```bash
 # Install Ollama
@@ -227,6 +252,34 @@ ollama pull nomic-embed-text    # local embedding model
 ```
 
 **Verify**: `ollama --version` and `ollama list`
+
+#### Option B — vLLM
+
+> **Prerequisites**: NVIDIA GPU with CUDA 12.1+, at least 16 GB VRAM for 7B models (24+ GB for 14B+).
+
+```bash
+# Install vLLM into the RAG conda env
+conda activate RAG
+pip install vllm
+
+# Start vLLM with OpenAI-compatible API
+python -m vllm.entrypoints.openai.api_server \
+  --model meta-llama/Llama-3.1-8B-Instruct \
+  --host 0.0.0.0 \
+  --port 8100 \
+  --max-model-len 8192
+
+# For quantized models (less VRAM):
+python -m vllm.entrypoints.openai.api_server \
+  --model TheBloke/Llama-3.1-8B-Instruct-GPTQ \
+  --quantization gptq \
+  --host 0.0.0.0 \
+  --port 8100
+```
+
+**Verify**: `curl http://localhost:8100/v1/models` — should list the loaded model
+
+> **Note**: vLLM model weights are downloaded from HuggingFace. You may need `huggingface-cli login` for gated models (e.g., Llama 3). Set `HF_HOME` to control the download cache directory.
 
 ### 4. kubectl & Helm (Optional — for K8S, Phase 4)
 
@@ -254,7 +307,8 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 | Python 3.12 | Via conda `RAG` env | Phase 1+ | `conda create -n RAG python=3.12` |
 | Node.js 20+ | **To install** | Phase 3+ | `nvm install --lts` |
 | Docker | **To install** | Phase 4+ (optional earlier) | Docker Desktop WSL integration or `docker-ce` in WSL |
-| Ollama | Optional | Phase 1+ (if local LLM) | `curl -fsSL https://ollama.com/install.sh \| sh` |
+| Ollama | Optional | Phase 1+ (if local LLM) | `curl -fsSL https://ollama.com/install.sh \| sh` — easy dev setup |
+| vLLM | Optional | Phase 1+ (if local LLM) | `pip install vllm` — requires NVIDIA GPU, high-throughput production |
 | kubectl | Optional | Phase 4 (K8S only) | `curl -LO ... && sudo install kubectl` |
 | Helm | Optional | Phase 4 (K8S only) | `curl ... \| bash` (get-helm-3) |
 
@@ -391,9 +445,12 @@ Configure via a single environment variable `LLM_PROVIDER`:
 | `openai` | `ChatOpenAI` | `OpenAIEmbeddings` | `OPENAI_API_KEY` | Direct OpenAI API |
 | `azure` | `AzureChatOpenAI` | `AzureOpenAIEmbeddings` | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_DEPLOYMENT` | Enterprise Azure deployment |
 | `github` | `ChatOpenAI` (custom base_url) | `OpenAIEmbeddings` (custom base_url) | `GITHUB_TOKEN` | GitHub Models endpoint (current default) |
-| `ollama` | `ChatOllama` | `OllamaEmbeddings` | `OLLAMA_BASE_URL` (default `http://localhost:11434`) | Fully local, no API key needed |
+| `ollama` | `ChatOllama` | `OllamaEmbeddings` | `OLLAMA_BASE_URL` (default `http://localhost:11434`) | Fully local, no API key needed, easy setup |
+| `vllm` | `ChatOpenAI` (custom base_url) | `OpenAIEmbeddings` (custom base_url) | `VLLM_BASE_URL` (default `http://localhost:8100/v1`) | Fully local, no API key, high-throughput GPU inference |
 
 The `llm_service.py` factory method returns the correct LangChain LLM and embedding instances based on this config. All downstream code is provider-agnostic.
+
+> **Note**: The `vllm` provider reuses the same `ChatOpenAI` / `OpenAIEmbeddings` classes as the `github` provider, just with a different `base_url` pointing to the local vLLM server. This means zero additional LangChain dependencies.
 
 ### Step 1.5 — Configuration Management
 
@@ -407,7 +464,7 @@ Centralize all configuration using Pydantic Settings.
 **Example `.env.example`**:
 
 ```env
-# LLM Provider: openai | azure | github | ollama
+# LLM Provider: openai | azure | github | ollama | vllm
 LLM_PROVIDER=github
 
 # GitHub Models (default)
@@ -423,6 +480,10 @@ GITHUB_TOKEN=your_github_token_here
 
 # Ollama (if LLM_PROVIDER=ollama)
 # OLLAMA_BASE_URL=http://localhost:11434
+
+# vLLM (if LLM_PROVIDER=vllm)
+# VLLM_BASE_URL=http://localhost:8100/v1
+# VLLM_MODEL_NAME=meta-llama/Llama-3.1-8B-Instruct
 
 # Model names
 MODEL_NAME=gpt-4o
@@ -1076,7 +1137,7 @@ WTG.Query.RAG/
 | Frontend Framework | **React + TypeScript + Vite** | As requested; fast dev experience, large ecosystem |
 | Authentication | **Deferred** | No auth in initial phases; add SSO/LDAP when needed |
 | Deployment | **Docker Compose first** | Sufficient for small scale; K8S available when needed |
-| LLM | **Flexible (env-configurable)** | Start with GitHub Models/OpenAI; Ollama for fully local option |
+| LLM | **Flexible (env-configurable)** | Start with GitHub Models/OpenAI; Ollama (dev) or vLLM (production) for fully local option |
 
 ---
 
