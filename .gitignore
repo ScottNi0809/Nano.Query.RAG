@@ -2,3 +2,12 @@
 __pycache__/
 *.pyc
 chroma_db/
+
+# Backend runtime cache/db
+backend/chroma_db/
+
+# Editable install generated metadata
+*.egg-info/
+
+# Local uploaded test documents (UUID-prefixed)
+docs/*-*-*-*-*_*.*
