@@ -1118,6 +1118,9 @@ curl http://localhost:8000/api/health
 ```bash
 curl -X POST http://localhost:8000/api/documents/upload \
   -F "file=@../docs/sample.md"
+
+curl -X POST http://localhost:8000/api/documents/upload \
+  -F "file=@../docs/sample.txt"
 ```
 
 期望返回：
@@ -1147,6 +1150,12 @@ curl http://localhost:8000/api/documents
 curl -X POST http://localhost:8000/api/chat \
   -H "Content-Type: application/json" \
   -d '{"question":"What is WTG.Query.RAG?", "stream": false}'
+```
+
+```bash
+curl -X POST http://localhost:8000/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{"question":"What is the title of Elon Zhao?","stream":false}'
 ```
 
 流式：
