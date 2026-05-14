@@ -12,6 +12,7 @@
 '''
 
 import json
+import logging
 from collections.abc import AsyncIterator
 
 from langchain_core.prompts import ChatPromptTemplate
@@ -21,14 +22,20 @@ from app.services.llm_service import LLMService
 from app.services.query_rewrite_service import QueryRewriteService
 from app.services.vectorstore_service import VectorStoreService, get_vectorstore_service
 
+logger = logging.getLogger(__name__)
+
 
 RAG_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "system",
             "You are a helpful assistant for WiseTechGlobal internal knowledge. "
-            "Answer using only the provided context. If the context does not contain "
-            "the answer, say you do not know. Always keep the answer grounded and concise.",
+            "Answer using ONLY the provided context. "
+            "Do NOT speculate, infer, or use any outside knowledge. "
+            "If the context does not contain enough information to answer, "
+            "respond exactly with: 'I don't have enough information to answer this question.' "
+            "Do NOT fabricate facts, sources, or details. "
+            "Always keep the answer grounded and concise.",
         ),
         (
             "human",
@@ -84,6 +91,7 @@ class RAGService:
                     seen_content.add(content_key)
                     merged.append((doc, score))
         merged.sort(key=lambda pair: pair[1])
+        logger.info("Retrieved %d unique chunks from %d queries", len(merged), len(queries))
         return merged
 
     # 非流式接口
