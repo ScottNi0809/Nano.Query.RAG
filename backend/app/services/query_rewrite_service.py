@@ -19,10 +19,7 @@ QUERY_REWRITE_PROMPT = ChatPromptTemplate.from_messages(
             "3. If the question contains multiple sub-questions, decompose it into "
             "individual focused queries.\n"
             "4. Remove filler words and conversational noise.\n"
-            "5. Preserve the original intent and all technical terms.\n"
-            "6. Do NOT add information, assumptions, or topics that were not in the "
-            "original question. Only restructure what the user actually asked.\n"
-            "7. Do NOT expand the scope of the query beyond the user's intent.\n\n"
+            "5. Preserve the original intent and all technical terms.\n\n"
             "Respond with a JSON object in this exact format:\n"
             '{{"queries": ["query1", "query2", ...]}}\n\n'
             "For simple questions, the list should contain a single rewritten query. "
