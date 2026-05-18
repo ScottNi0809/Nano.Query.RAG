@@ -3,6 +3,7 @@
 负责完整 RAG 流程：
 
 接收问题
+查询重写（Query Rewrite）
 从 ChromaDB 检索相关 chunk
 组织 prompt
 调用 LLM
@@ -11,13 +12,17 @@
 '''
 
 import json
+import logging
 from collections.abc import AsyncIterator
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 from app.services.llm_service import LLMService
+from app.services.query_rewrite_service import QueryRewriteService
 from app.services.vectorstore_service import VectorStoreService, get_vectorstore_service
+
+logger = logging.getLogger(__name__)
 
 
 RAG_PROMPT = ChatPromptTemplate.from_messages(
@@ -25,8 +30,12 @@ RAG_PROMPT = ChatPromptTemplate.from_messages(
         (
             "system",
             "You are a helpful assistant for WiseTechGlobal internal knowledge. "
-            "Answer using only the provided context. If the context does not contain "
-            "the answer, say you do not know. Always keep the answer grounded and concise.",
+            "Answer using ONLY the provided context. "
+            "Do NOT speculate, infer, or use any outside knowledge. "
+            "If the context does not contain enough information to answer, "
+            "respond exactly with: 'I don't have enough information to answer this question.' "
+            "Do NOT fabricate facts, sources, or details. "
+            "Always keep the answer grounded and concise.",
         ),
         (
             "human",
@@ -44,6 +53,7 @@ class RAGService:
     ):
         self.llm_service = llm_service or LLMService()
         self.vectorstore_service = vectorstore_service or get_vectorstore_service()
+        self.query_rewrite_service = QueryRewriteService(self.llm_service.get_chat_model())
 
     def _format_context(self, documents_with_scores) -> str:
         parts = []
@@ -70,9 +80,24 @@ class RAGService:
             )
         return sources
 
+    def _retrieve_for_queries(self, queries: list[str], k: int = 4) -> list:
+        seen_content: set[str] = set()
+        merged: list = []
+        for query in queries:
+            results = self.vectorstore_service.similarity_search_with_score(query, k=k)
+            for doc, score in results:
+                content_key = doc.page_content[:200]
+                if content_key not in seen_content:
+                    seen_content.add(content_key)
+                    merged.append((doc, score))
+        merged.sort(key=lambda pair: pair[1])
+        logger.info("Retrieved %d unique chunks from %d queries", len(merged), len(queries))
+        return merged
+
     # 非流式接口
     async def answer(self, question: str) -> dict:
-        documents_with_scores = self.vectorstore_service.similarity_search_with_score(question, k=4)
+        rewrite_result = await self.query_rewrite_service.rewrite(question)
+        documents_with_scores = self._retrieve_for_queries(rewrite_result.queries)
         context = self._format_context(documents_with_scores)
         sources = self._format_sources(documents_with_scores)
 
@@ -86,7 +111,8 @@ class RAGService:
 
     # 流式接口
     async def stream_answer(self, question: str) -> AsyncIterator[dict]:
-        documents_with_scores = self.vectorstore_service.similarity_search_with_score(question, k=4)
+        rewrite_result = await self.query_rewrite_service.rewrite(question)
+        documents_with_scores = self._retrieve_for_queries(rewrite_result.queries)
         context = self._format_context(documents_with_scores)
         sources = self._format_sources(documents_with_scores)
 
