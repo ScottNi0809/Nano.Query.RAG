@@ -6,6 +6,13 @@ chroma_db/
 # Backend runtime cache/db
 backend/chroma_db/
 
+# Test temporary directories
+test_docs/
+backend/test_docs/
+
+# Test caching
+.pytest_cache/
+
 # Editable install generated metadata
 *.egg-info/
 

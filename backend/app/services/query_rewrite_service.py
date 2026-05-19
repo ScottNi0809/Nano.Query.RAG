@@ -55,7 +55,7 @@ class QueryRewriteService:
         try:
             data = json.loads(raw)
             queries = data.get("queries", [])
-            if isinstance(queries, list) and all(isinstance(q, str) and q.strip() for q in queries):
+            if isinstance(queries, list) and queries and all(isinstance(q, str) and q.strip() for q in queries):
                 return [q.strip() for q in queries[:3]]
         except (json.JSONDecodeError, AttributeError):
             logger.warning("Failed to parse query rewrite response: %s", raw)
