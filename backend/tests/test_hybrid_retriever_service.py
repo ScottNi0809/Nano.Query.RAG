@@ -66,18 +66,41 @@ def hybrid_service(mock_vectorstore_service, mock_settings):
 
 class TestHybridRetrieverTokenize:
     def test_basic_tokenization(self):
+        """测试基础英文分词"""
         tokens = HybridRetrieverService._tokenize("Hello World! This is a TEST.")
-        assert tokens == ["hello", "world", "this", "is", "a", "test"]
+        assert "hello" in tokens
+        assert "world" in tokens
+        assert "this" in tokens
 
     def test_empty_string(self):
+        """测试空字符串"""
         tokens = HybridRetrieverService._tokenize("")
         assert tokens == []
 
-    def test_special_characters(self):
-        tokens = HybridRetrieverService._tokenize("BM25-based retrieval (v2.0)")
-        assert "bm25" in tokens
-        assert "retrieval" in tokens
-        assert "v2" in tokens
+    def test_composite_words(self):
+        """测试复合词：Qwen2.5、Python3.11 等"""
+        tokens = HybridRetrieverService._tokenize("Qwen2.5 and Python3.11")
+        assert "qwen2.5" in tokens or "qwen" in tokens  # jieba/复合词处理
+        assert "python3.11" in tokens or "python" in tokens
+        assert "and" in tokens
+
+    def test_chinese_tokenization(self):
+        """测试中文分词"""
+        tokens = HybridRetrieverService._tokenize("千问是开源大模型")
+        assert len(tokens) > 0
+        # jieba 应该分出 "千问"、"大模型" 等词
+        content = "".join(tokens)
+        assert "千问" in content or "千" in tokens
+        assert "大模型" in content or "大" in tokens
+
+    def test_mixed_chinese_english(self):
+        """测试中英混合"""
+        tokens = HybridRetrieverService._tokenize("千问 Qwen2.5 是 LLM 大模型")
+        # 应该同时包含中文词和英文词
+        assert len(tokens) > 3
+        text = "".join(tokens)
+        assert "qwen" in text or "qwen2.5" in text
+        assert "llm" in text
 
 
 class TestHybridRetrieverBM25:

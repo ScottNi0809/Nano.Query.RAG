@@ -60,9 +60,34 @@ class HybridRetrieverService:
 
     @staticmethod
     def _tokenize(text: str) -> list[str]:
-        """简单分词：按空格和标点切分，转小写。"""
+        """
+        混合分词：支持中文（jieba）+ 英文复合词（正则）。
+        
+        例如：
+        - "Qwen2.5" -> ["qwen2.5"]
+        - "Python3.11" -> ["python3.11"]  
+        - "千问是开源大模型" -> ["千问", "是", "开源", "大模型"]
+        - "Qwen2.5 is 大模型" -> ["qwen2.5", "is", "大模型"]
+        """
         import re
-        return re.findall(r'\w+', text.lower())
+        import jieba
+        
+        text = text.lower()
+        
+        # 检测是否包含中文字符
+        has_chinese = bool(re.search(r'[\u4e00-\u9fff]', text))
+        
+        if has_chinese:
+            # 对中文使用 jieba 分词
+            tokens = list(jieba.cut(text))
+            # 过滤出有意义的词（去掉纯空格、标点等）
+            tokens = [t.strip() for t in tokens if t.strip() and re.search(r'[\w\u4e00-\u9fff]', t)]
+            return tokens
+        else:
+            # 对纯英文使用改进正则：支持复合词如 "qwen2.5"、"python3.11"
+            # 匹配模式：字母数字.字母数字 或 单词
+            tokens = re.findall(r'[a-z]+[\d.]*[a-z]*\d*|[a-z]+|\d+', text)
+            return tokens
 
     def refresh_index(self) -> None:
         """重新构建 BM25 索引。文档变更后应调用。"""

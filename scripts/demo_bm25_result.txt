@@ -1,98 +1,126 @@
 (rag) schifino@B3CTTV3:/mnt/c/git/GitHub/WiseTechGlobal/WTG.Query.RAG/scripts$ python demo_bm25.py
-============================================================
-BM25 混合检索演示
-============================================================
+======================================================================
+BM25 混合检索演示（支持中文分词 + 复合词）
+======================================================================
 
-【英文查询，纯关键词】
-查询: Qwen LLM
-------------------------------------------------------------
+【英文查询，复合词（数字+字母）】
+查询: Qwen2.5
+----------------------------------------------------------------------
+/home/schifino/miniconda3/envs/rag/lib/python3.12/site-packages/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+分词结果: ['qwen2.5']
+Building prefix dict from the default dictionary ...
+Loading model from cache /tmp/jieba.cache
+Loading model cost 0.949 seconds.
+Prefix dict has been built successfully.
+
 BM25 检索结果 (3 条):
-  1. BM25分数=1.3216
-     内容: LangChain 提供了一套工具用于构建 LLM 应用程序。...
+  1. BM25分数=1.1068
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
   2. BM25分数=0.0000
-     内容: Qwen2.5 is a powerful open-source large language model devel...
+     内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+  3. BM25分数=0.0000
+     内容: FastAPI is a modern web framework for building APIs with Python3....
+
+混合检索结果 (RRF融合, k=2):
+  1. RRF分数=0.0164
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
+  2. RRF分数=0.0161
+     内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+
+【英文查询，复合词+关键词】
+查询: Qwen2.5 LLM
+----------------------------------------------------------------------
+分词结果: ['qwen2.5', 'llm']
+
+BM25 检索结果 (3 条):
+  1. BM25分数=1.2456
+     内容: LangChain 提供了一套工具用于构建 LLM 应用程序。...
+  2. BM25分数=1.1068
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
   3. BM25分数=0.0000
      内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
 
-混合检索结果 (RRF融合, k=3):
+混合检索结果 (RRF融合, k=2):
   1. RRF分数=0.0163
-     内容: Qwen2.5 is a powerful open-source large language model devel...
-  2. RRF分数=0.0160
-     内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-  3. RRF分数=0.0082
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
+  2. RRF分数=0.0082
      内容: LangChain 提供了一套工具用于构建 LLM 应用程序。...
 
-【中文查询，纯关键词】
+【中文查询，分词】
 查询: 千问大模型
-------------------------------------------------------------
+----------------------------------------------------------------------
+分词结果: ['千问', '大', '模型']
+
 BM25 检索结果 (3 条):
-  1. BM25分数=0.0000
-     内容: Qwen2.5 is a powerful open-source large language model devel...
-  2. BM25分数=0.0000
+  1. BM25分数=0.9466
+     内容: 我最喜欢的大模型是千问，它的中英混合能力很强。...
+  2. BM25分数=0.9149
      内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
   3. BM25分数=0.0000
-     内容: FastAPI is a modern web framework for building APIs with Pyt...
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
 
-混合检索结果 (RRF融合, k=3):
-  1. RRF分数=0.0164
-     内容: Qwen2.5 is a powerful open-source large language model devel...
-  2. RRF分数=0.0161
+混合检索结果 (RRF融合, k=2):
+  1. RRF分数=0.0161
      内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-  3. RRF分数=0.0159
-     内容: FastAPI is a modern web framework for building APIs with Pyt...
-
-【英文查询，常见词汇】
-查询: what's the best open source model
-------------------------------------------------------------
-BM25 检索结果 (3 条):
-  1. BM25分数=2.2512
-     内容: Qwen2.5 is a powerful open-source large language model devel...
-  2. BM25分数=0.0000
-     内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-  3. BM25分数=0.0000
-     内容: FastAPI is a modern web framework for building APIs with Pyt...
-
-混合检索结果 (RRF融合, k=3):
-  1. RRF分数=0.0164
-     内容: Qwen2.5 is a powerful open-source large language model devel...
-  2. RRF分数=0.0161
-     内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-  3. RRF分数=0.0159
-     内容: FastAPI is a modern web framework for building APIs with Pyt...
+  2. RRF分数=0.0082
+     内容: 我最喜欢的大模型是千问，它的中英混合能力很强。...
 
 【中英混合查询】
-查询: 大模型和LLM的区别
-------------------------------------------------------------
+查询: Qwen2.5 是 LLM 大模型
+----------------------------------------------------------------------
+分词结果: ['qwen2.5', '是', 'llm', '大', '模型']
+
 BM25 检索结果 (3 条):
-  1. BM25分数=0.0000
-     内容: Qwen2.5 is a powerful open-source large language model devel...
+  1. BM25分数=1.2456
+     内容: LangChain 提供了一套工具用于构建 LLM 应用程序。...
+  2. BM25分数=1.1068
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
+  3. BM25分数=0.9466
+     内容: 我最喜欢的大模型是千问，它的中英混合能力很强。...
+
+混合检索结果 (RRF融合, k=2):
+  1. RRF分数=0.0163
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
+  2. RRF分数=0.0082
+     内容: LangChain 提供了一套工具用于构建 LLM 应用程序。...
+
+【英文复合词查询】
+查询: FastAPI Python3.11
+----------------------------------------------------------------------
+分词结果: ['fastapi', 'python3.11']
+
+BM25 检索结果 (3 条):
+  1. BM25分数=1.1495
+     内容: FastAPI is a modern web framework for building APIs with Python3....
   2. BM25分数=0.0000
-     内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
   3. BM25分数=0.0000
-     内容: FastAPI is a modern web framework for building APIs with Pyt...
-
-混合检索结果 (RRF融合, k=3):
-  1. RRF分数=0.0164
-     内容: Qwen2.5 is a powerful open-source large language model devel...
-  2. RRF分数=0.0161
      内容: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-  3. RRF分数=0.0159
-     内容: FastAPI is a modern web framework for building APIs with Pyt...
 
-============================================================
+混合检索结果 (RRF融合, k=2):
+  1. RRF分数=0.0163
+     内容: Qwen2.5 is a powerful open-source large language model developed ...
+  2. RRF分数=0.0082
+     内容: FastAPI is a modern web framework for building APIs with Python3....
+
+======================================================================
 权重对比演示（同一查询，不同权重）
-============================================================
+======================================================================
 
 查询: 千问大模型
+分词结果: ['千问', '大', '模型']
 
 权重 (BM25=0.2, Vector=0.8):
-  1. RRF=0.0164: Qwen2.5 is a powerful open-source large language m...
-  2. RRF=0.0161: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-
+  1. RRF=0.0161: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+  2. RRF=0.0131: Qwen2.5 is a powerful open-source large language m...
 权重 (BM25=0.5, Vector=0.5):
-  1. RRF=0.0164: Qwen2.5 is a powerful open-source large language m...
-  2. RRF=0.0161: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
-
+  1. RRF=0.0161: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+  2. RRF=0.0082: 我最喜欢的大模型是千问，它的中英混合能力很强。...
 权重 (BM25=0.8, Vector=0.19999999999999996):
-  1. RRF=0.0164: Qwen2.5 is a powerful open-source large language m...
-  2. RRF=0.0161: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+  1. RRF=0.0161: 千问是阿里巴巴开发的开源大语言模型，具有强大的多语言能力。...
+  2. RRF=0.0131: 我最喜欢的大模型是千问，它的中英混合能力很强。...
+
+======================================================================
+✅ 演示完成
+======================================================================
