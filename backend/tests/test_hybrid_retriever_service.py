@@ -137,11 +137,14 @@ class TestHybridRetrieverHybridSearch:
     def test_hybrid_returns_merged_results(self, hybrid_service):
         results = hybrid_service.hybrid_search("FastAPI web framework", k=4)
         assert len(results) > 0
-        # Each result is (Document, rrf_score)
-        for doc, score in results:
+        # Each result is (Document, scores_dict)
+        for doc, scores in results:
             assert isinstance(doc, Document)
-            assert isinstance(score, float)
-            assert score > 0
+            assert isinstance(scores, dict)
+            assert "rrf" in scores
+            assert "bm25" in scores
+            assert "vector" in scores
+            assert scores["rrf"] > 0
 
     def test_hybrid_respects_k(self, hybrid_service):
         results = hybrid_service.hybrid_search("Python", k=2)

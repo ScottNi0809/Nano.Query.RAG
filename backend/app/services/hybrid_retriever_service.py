@@ -109,11 +109,16 @@ class HybridRetrieverService:
 
         return scored_docs[:k]
 
-    def hybrid_search(self, query: str, k: int = 4) -> list[tuple[Document, float]]:
+    def hybrid_search(self, query: str, k: int = 4) -> list[tuple[Document, dict]]:
         """
         混合检索：BM25 + 向量检索，用 RRF 融合排序。
 
-        RRF score = sum(1 / (rrf_k + rank)) for each ranker
+        返回 (Document, scores_dict)，scores_dict 包含：
+        - rrf: RRF 融合分数
+        - bm25: BM25 原始分数（未命中则为 0）
+        - vector: 向量相似度分数（未命中则为 0）
+
+        RRF score = sum(weight / (rrf_k + rank)) for each ranker
         """
         rrf_k = 60  # RRF 常数，通常设 60
 
@@ -126,18 +131,22 @@ class HybridRetrieverService:
 
         # 建立 RRF 分数映射（用 page_content 前 200 字符去重）
         rrf_scores: dict[str, float] = {}
+        bm25_raw_scores: dict[str, float] = {}
+        vector_raw_scores: dict[str, float] = {}
         doc_map: dict[str, Document] = {}
 
         # BM25 排名贡献
-        for rank, (doc, _score) in enumerate(bm25_results):
+        for rank, (doc, raw_score) in enumerate(bm25_results):
             content_key = doc.page_content[:200]
             rrf_scores[content_key] = rrf_scores.get(content_key, 0.0) + bm25_weight / (rrf_k + rank + 1)
+            bm25_raw_scores[content_key] = float(raw_score)
             doc_map[content_key] = doc
 
         # 向量检索排名贡献
-        for rank, (doc, _score) in enumerate(vector_results):
+        for rank, (doc, raw_score) in enumerate(vector_results):
             content_key = doc.page_content[:200]
             rrf_scores[content_key] = rrf_scores.get(content_key, 0.0) + vector_weight / (rrf_k + rank + 1)
+            vector_raw_scores[content_key] = float(raw_score)
             doc_map[content_key] = doc
 
         # 按 RRF 分数降序排列
@@ -145,7 +154,12 @@ class HybridRetrieverService:
 
         results = []
         for content_key, rrf_score in sorted_items[:k]:
-            results.append((doc_map[content_key], rrf_score))
+            scores = {
+                "rrf": rrf_score,
+                "bm25": bm25_raw_scores.get(content_key, 0.0),
+                "vector": vector_raw_scores.get(content_key, 0.0),
+            }
+            results.append((doc_map[content_key], scores))
 
         logger.info(
             "Hybrid search: %d BM25 + %d vector → %d merged (weights: BM25=%.1f, Vector=%.1f)",

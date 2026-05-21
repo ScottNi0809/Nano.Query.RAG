@@ -1,0 +1,53 @@
+const zh = {
+  common: {
+    appName: 'WTG 智能问答',
+    loading: '加载中...',
+    error: '出了点问题',
+    retry: '重试',
+    cancel: '取消',
+    confirm: '确认',
+    delete: '删除',
+    upload: '上传',
+    search: '搜索',
+    noData: '暂无数据',
+  },
+  nav: {
+    chat: '对话',
+    documents: '文档管理',
+  },
+  chat: {
+    placeholder: '输入你想了解的问题...',
+    send: '发送',
+    thinking: '思考中...',
+    sources: '引用来源',
+    noSources: '未找到引用来源',
+    welcomeTitle: '你想了解什么？',
+    welcomeSubtitle: '向内部文档、代码和知识库提问。',
+    suggestion1: '总结最新的文档变更',
+    suggestion2: '认证流程是如何工作的？',
+    suggestion3: '部署的要求有哪些？',
+    clearHistory: '清除历史',
+    copyCode: '复制',
+    copied: '已复制！',
+  },
+  documents: {
+    title: '文档管理',
+    subtitle: '管理已索引的文档库',
+    uploadTitle: '上传文档',
+    uploadHint: '点击或拖拽 PDF、Markdown 或文本文件到此处',
+    fileName: '文件名',
+    sourceType: '类型',
+    chunksCount: '分块数',
+    actions: '操作',
+    deleteConfirm: '确定要删除这个文档吗？',
+    uploadSuccess: '文档上传成功',
+    deleteSuccess: '文档删除成功',
+    noDocuments: '暂无已索引的文档',
+  },
+  theme: {
+    light: '浅色',
+    dark: '深色',
+  },
+};
+
+export default zh;
