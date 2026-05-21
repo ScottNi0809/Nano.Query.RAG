@@ -60,16 +60,26 @@ class RAGService:
 
     def _format_context(self, documents_with_scores) -> str:
         parts = []
-        for index, (document, score) in enumerate(documents_with_scores, start=1):
+        for index, (document, scores) in enumerate(documents_with_scores, start=1):
             source = document.metadata.get("file_name") or document.metadata.get("source") or "unknown"
+            rrf = scores["rrf"] if isinstance(scores, dict) else scores
             parts.append(
-                f"[Source {index}: {source}; score={score}]\n{document.page_content}"
+                f"[Source {index}: {source}; score={rrf:.4f}]\n{document.page_content}"
             )
         return "\n\n---\n\n".join(parts)
 
     def _format_sources(self, documents_with_scores) -> list[dict]:
         sources = []
-        for document, score in documents_with_scores:
+        for document, scores in documents_with_scores:
+            if isinstance(scores, dict):
+                score_rrf = scores["rrf"]
+                score_bm25 = scores.get("bm25", 0.0)
+                score_vector = scores.get("vector", 0.0)
+            else:
+                score_rrf = float(scores)
+                score_bm25 = 0.0
+                score_vector = 0.0
+
             sources.append(
                 {
                     "document_id": document.metadata.get("document_id"),
@@ -77,7 +87,9 @@ class RAGService:
                     "title": document.metadata.get("file_name") or document.metadata.get("source", "unknown"),
                     "source_type": document.metadata.get("source_type", "unknown"),
                     "file_path": document.metadata.get("file_path"),
-                    "score": float(score),
+                    "score": float(score_rrf),
+                    "score_bm25": float(score_bm25),
+                    "score_vector": float(score_vector),
                     "preview": document.page_content[:500],
                 }
             )
@@ -89,12 +101,12 @@ class RAGService:
         merged: list = []
         for query in queries:
             results = self.hybrid_retriever_service.hybrid_search(query, k=k)
-            for doc, score in results:
+            for doc, scores in results:
                 content_key = doc.page_content[:200]
                 if content_key not in seen_content:
                     seen_content.add(content_key)
-                    merged.append((doc, score))
-        merged.sort(key=lambda pair: pair[1], reverse=True)
+                    merged.append((doc, scores))
+        merged.sort(key=lambda pair: pair[1]["rrf"] if isinstance(pair[1], dict) else pair[1], reverse=True)
         logger.info("Retrieved %d unique chunks from %d queries (hybrid)", len(merged), len(queries))
         return merged
 

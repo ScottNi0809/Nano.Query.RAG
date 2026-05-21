@@ -1,0 +1,53 @@
+const en = {
+  common: {
+    appName: 'WTG Query RAG',
+    loading: 'Loading...',
+    error: 'Something went wrong',
+    retry: 'Retry',
+    cancel: 'Cancel',
+    confirm: 'Confirm',
+    delete: 'Delete',
+    upload: 'Upload',
+    search: 'Search',
+    noData: 'No data',
+  },
+  nav: {
+    chat: 'Chat',
+    documents: 'Documents',
+  },
+  chat: {
+    placeholder: 'Ask a question about your documents...',
+    send: 'Send',
+    thinking: 'Thinking...',
+    sources: 'Sources',
+    noSources: 'No sources found',
+    welcomeTitle: 'What would you like to know?',
+    welcomeSubtitle: 'Ask questions about your internal documents, code, and knowledge base.',
+    suggestion1: 'Summarize the latest documentation changes',
+    suggestion2: 'How does the authentication flow work?',
+    suggestion3: 'What are the deployment requirements?',
+    clearHistory: 'Clear history',
+    copyCode: 'Copy',
+    copied: 'Copied!',
+  },
+  documents: {
+    title: 'Document Management',
+    subtitle: 'Manage your indexed document corpus',
+    uploadTitle: 'Upload Documents',
+    uploadHint: 'Click or drag PDF, Markdown, or Text files here',
+    fileName: 'File Name',
+    sourceType: 'Type',
+    chunksCount: 'Chunks',
+    actions: 'Actions',
+    deleteConfirm: 'Are you sure you want to delete this document?',
+    uploadSuccess: 'Document uploaded successfully',
+    deleteSuccess: 'Document deleted successfully',
+    noDocuments: 'No documents indexed yet',
+  },
+  theme: {
+    light: 'Light',
+    dark: 'Dark',
+  },
+};
+
+export default en;

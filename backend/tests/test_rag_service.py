@@ -65,7 +65,7 @@ def rag_service(mock_llm_service, mock_vectorstore_service):
                         "file_path": "/docs/test.txt",
                     },
                 ),
-                0.5,
+                {"rrf": 0.5, "bm25": 0.3, "vector": 0.7},
             ),
         ]
         mock_hybrid_fn.return_value = mock_hybrid
@@ -88,7 +88,7 @@ class TestRAGServiceRetrieve:
         )
 
         mock_hybrid = MagicMock()
-        mock_hybrid.hybrid_search.return_value = [(doc, 0.3)]
+        mock_hybrid.hybrid_search.return_value = [(doc, {"rrf": 0.3, "bm25": 0.2, "vector": 0.4})]
 
         with patch("app.services.rag_service.QueryRewriteService"), \
              patch("app.services.rag_service.get_hybrid_retriever_service", return_value=mock_hybrid):
@@ -109,8 +109,8 @@ class TestRAGServiceRetrieve:
 
         mock_hybrid = MagicMock()
         mock_hybrid.hybrid_search.side_effect = [
-            [(doc_a, 0.2)],
-            [(doc_b, 0.8)],
+            [(doc_a, {"rrf": 0.2, "bm25": 0.1, "vector": 0.3})],
+            [(doc_b, {"rrf": 0.8, "bm25": 0.6, "vector": 0.9})],
         ]
 
         with patch("app.services.rag_service.QueryRewriteService"), \
@@ -122,7 +122,7 @@ class TestRAGServiceRetrieve:
             )
 
         results = service._retrieve_for_queries(["q1", "q2"], k=4)
-        scores = [score for _, score in results]
+        scores = [s["rrf"] for _, s in results]
         assert scores == sorted(scores, reverse=True)
 
 
@@ -141,7 +141,7 @@ class TestRAGServiceAnswer:
                             "file_path": "/test.txt",
                         },
                     ),
-                    0.5,
+                    {"rrf": 0.5, "bm25": 0.3, "vector": 0.7},
                 )
             ]
 
@@ -173,7 +173,7 @@ class TestRAGServiceStream:
                             "file_path": "/test.txt",
                         },
                     ),
-                    0.5,
+                    {"rrf": 0.5, "bm25": 0.3, "vector": 0.7},
                 )
             ]
 
