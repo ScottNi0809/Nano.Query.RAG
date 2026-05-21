@@ -74,6 +74,7 @@ async def async_client():
         patch("app.api.routes.documents.get_vectorstore_service") as mock_vs_docs,
         patch("app.api.routes.documents.get_document_service") as mock_doc,
         patch("app.api.routes.documents.get_settings") as mock_settings_fn,
+        patch("app.api.routes.documents.get_hybrid_retriever_service") as mock_hybrid,
     ):
         # Health endpoint mock
         vs_instance = MagicMock()
@@ -111,6 +112,11 @@ async def async_client():
         mock_settings_fn.return_value = settings_instance
 
         vs_instance.add_documents.return_value = {"document_id": "test-id", "chunks_added": 1}
+
+        # Hybrid retriever mock
+        hybrid_instance = MagicMock()
+        hybrid_instance.refresh_index.return_value = None
+        mock_hybrid.return_value = hybrid_instance
 
         from app.main import app
 

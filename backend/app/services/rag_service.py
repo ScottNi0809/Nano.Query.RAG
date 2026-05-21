@@ -21,6 +21,7 @@ from langchain_core.output_parsers import StrOutputParser
 from app.services.llm_service import LLMService
 from app.services.query_rewrite_service import QueryRewriteService
 from app.services.vectorstore_service import VectorStoreService, get_vectorstore_service
+from app.services.hybrid_retriever_service import HybridRetrieverService, get_hybrid_retriever_service
 
 logger = logging.getLogger(__name__)
 
@@ -50,9 +51,11 @@ class RAGService:
         self,
         llm_service: LLMService | None = None,
         vectorstore_service: VectorStoreService | None = None,
+        hybrid_retriever_service: HybridRetrieverService | None = None,
     ):
         self.llm_service = llm_service or LLMService()
         self.vectorstore_service = vectorstore_service or get_vectorstore_service()
+        self.hybrid_retriever_service = hybrid_retriever_service or get_hybrid_retriever_service()
         self.query_rewrite_service = QueryRewriteService(self.llm_service.get_chat_model())
 
     def _format_context(self, documents_with_scores) -> str:
@@ -81,17 +84,18 @@ class RAGService:
         return sources
 
     def _retrieve_for_queries(self, queries: list[str], k: int = 4) -> list:
+        """混合检索：对每个 query 执行 BM25+向量融合，去重后按分数排序。"""
         seen_content: set[str] = set()
         merged: list = []
         for query in queries:
-            results = self.vectorstore_service.similarity_search_with_score(query, k=k)
+            results = self.hybrid_retriever_service.hybrid_search(query, k=k)
             for doc, score in results:
                 content_key = doc.page_content[:200]
                 if content_key not in seen_content:
                     seen_content.add(content_key)
                     merged.append((doc, score))
-        merged.sort(key=lambda pair: pair[1])
-        logger.info("Retrieved %d unique chunks from %d queries", len(merged), len(queries))
+        merged.sort(key=lambda pair: pair[1], reverse=True)
+        logger.info("Retrieved %d unique chunks from %d queries (hybrid)", len(merged), len(queries))
         return merged
 
     # 非流式接口

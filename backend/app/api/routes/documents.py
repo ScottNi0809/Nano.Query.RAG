@@ -6,6 +6,7 @@ from fastapi import APIRouter, File, HTTPException, UploadFile
 from app.config import get_settings
 from app.services.document_service import get_document_service
 from app.services.vectorstore_service import get_vectorstore_service
+from app.services.hybrid_retriever_service import get_hybrid_retriever_service
 
 router = APIRouter()
 
@@ -34,6 +35,9 @@ async def upload_document(file: UploadFile = File(...)):
     chunks = document_service.split_documents(loaded_documents)
     result = vectorstore_service.add_documents(chunks, document_id=document_id)
 
+    # 刷新 BM25 索引
+    get_hybrid_retriever_service().refresh_index()
+
     return {
         "document_id": document_id,
         "file_name": original_name,
@@ -52,4 +56,6 @@ async def list_documents():
 @router.delete("/documents/{document_id}")
 async def delete_document(document_id: str):
     result = get_vectorstore_service().delete_document(document_id)
+    # 刷新 BM25 索引
+    get_hybrid_retriever_service().refresh_index()
     return result

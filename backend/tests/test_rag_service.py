@@ -43,16 +43,37 @@ def mock_vectorstore_service():
 def rag_service(mock_llm_service, mock_vectorstore_service):
     with patch(
         "app.services.rag_service.QueryRewriteService"
-    ) as MockQR:
+    ) as MockQR, patch(
+        "app.services.rag_service.get_hybrid_retriever_service"
+    ) as mock_hybrid_fn:
         qr_instance = MagicMock()
         qr_result = MagicMock()
         qr_result.queries = ["rewritten query"]
         qr_instance.rewrite = AsyncMock(return_value=qr_result)
         MockQR.return_value = qr_instance
 
+        mock_hybrid = MagicMock()
+        mock_hybrid.hybrid_search.return_value = [
+            (
+                Document(
+                    page_content="Relevant chunk content here",
+                    metadata={
+                        "document_id": "doc1",
+                        "chunk_id": "doc1:0",
+                        "file_name": "test.txt",
+                        "source_type": "file",
+                        "file_path": "/docs/test.txt",
+                    },
+                ),
+                0.5,
+            ),
+        ]
+        mock_hybrid_fn.return_value = mock_hybrid
+
         service = RAGService(
             llm_service=mock_llm_service,
             vectorstore_service=mock_vectorstore_service,
+            hybrid_retriever_service=mock_hybrid,
         )
         service.query_rewrite_service = qr_instance
         return service
@@ -65,37 +86,44 @@ class TestRAGServiceRetrieve:
             page_content="Same content here repeated across queries to verify dedup logic works",
             metadata={"file_name": "a.txt"},
         )
-        mock_vectorstore_service.similarity_search_with_score.return_value = [(doc, 0.3)]
 
-        with patch("app.services.rag_service.QueryRewriteService"):
+        mock_hybrid = MagicMock()
+        mock_hybrid.hybrid_search.return_value = [(doc, 0.3)]
+
+        with patch("app.services.rag_service.QueryRewriteService"), \
+             patch("app.services.rag_service.get_hybrid_retriever_service", return_value=mock_hybrid):
             service = RAGService(
                 llm_service=MagicMock(),
                 vectorstore_service=mock_vectorstore_service,
+                hybrid_retriever_service=mock_hybrid,
             )
 
         results = service._retrieve_for_queries(["q1", "q2"], k=4)
         # Same doc returned for both queries -> only 1 after dedup
         assert len(results) == 1
 
-    def test_results_sorted_by_score(self, mock_vectorstore_service):
-        """Results should be sorted ascending by score (lower = better)."""
+    def test_results_sorted_by_score_descending(self, mock_vectorstore_service):
+        """Results should be sorted descending by RRF score (higher = better)."""
         doc_a = Document(page_content="A" * 201, metadata={"file_name": "a.txt"})
         doc_b = Document(page_content="B" * 201, metadata={"file_name": "b.txt"})
 
-        mock_vectorstore_service.similarity_search_with_score.side_effect = [
-            [(doc_a, 0.8)],
-            [(doc_b, 0.2)],
+        mock_hybrid = MagicMock()
+        mock_hybrid.hybrid_search.side_effect = [
+            [(doc_a, 0.2)],
+            [(doc_b, 0.8)],
         ]
 
-        with patch("app.services.rag_service.QueryRewriteService"):
+        with patch("app.services.rag_service.QueryRewriteService"), \
+             patch("app.services.rag_service.get_hybrid_retriever_service", return_value=mock_hybrid):
             service = RAGService(
                 llm_service=MagicMock(),
                 vectorstore_service=mock_vectorstore_service,
+                hybrid_retriever_service=mock_hybrid,
             )
 
         results = service._retrieve_for_queries(["q1", "q2"], k=4)
         scores = [score for _, score in results]
-        assert scores == sorted(scores)
+        assert scores == sorted(scores, reverse=True)
 
 
 class TestRAGServiceAnswer:

@@ -50,6 +50,8 @@ class Settings(BaseSettings):
     chunk_size: int = Field(default=1000, ge=100)
     chunk_overlap: int = Field(default=200, ge=0)
 
+    bm25_weight: float = Field(default=0.5, ge=0.0, le=1.0)
+
     cors_origins: list[str] = [
         "http://localhost:5173",
         "http://localhost:5174",
