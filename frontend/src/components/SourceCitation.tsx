@@ -11,9 +11,9 @@ export default function SourceCitation({ sources }: SourceCitationProps) {
   const [expanded, setExpanded] = useState(false);
   const { t } = useTranslation();
 
-  // Normalize BM25 and vector scores separately for meaningful comparison
-  const maxBm25 = Math.max(...sources.map((s) => s.score_bm25 ?? 0), Number.EPSILON);
-  const maxVector = Math.max(...sources.map((s) => s.score_vector ?? 0), Number.EPSILON);
+  // Scores are pre-normalized to 0-100 by the backend
+  // Vector: similarity percentage (higher = more similar)
+  // BM25: keyword relevance percentage (higher = more relevant)
 
   return (
     <div className="source-citation">
@@ -35,8 +35,8 @@ export default function SourceCitation({ sources }: SourceCitationProps) {
               key={index}
               source={source}
               index={index}
-              normBm25={source.score_bm25 !== undefined ? Math.round((source.score_bm25 / maxBm25) * 100) : undefined}
-              normVector={source.score_vector !== undefined ? Math.round((source.score_vector / maxVector) * 100) : undefined}
+              normBm25={source.score_bm25 !== undefined ? Math.round(source.score_bm25) : undefined}
+              normVector={source.score_vector !== undefined ? Math.round(source.score_vector) : undefined}
             />
           ))}
         </div>

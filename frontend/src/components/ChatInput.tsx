@@ -1,6 +1,7 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
 import { SendOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { useChatStore } from '@/stores/chatStore';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -9,14 +10,19 @@ interface ChatInputProps {
 
 export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   const [value, setValue] = useState('');
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { t } = useTranslation();
+  const messages = useChatStore((s) => s.messages);
+
+  const userMessages = messages.filter((m) => m.role === 'user').map((m) => m.content);
 
   const handleSend = () => {
     const trimmed = value.trim();
     if (!trimmed || disabled) return;
     onSend(trimmed);
     setValue('');
+    setHistoryIndex(-1);
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
     }
@@ -26,6 +32,30 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
+    }
+    if (e.key === 'ArrowUp' && userMessages.length > 0) {
+      e.preventDefault();
+      const nextIndex = historyIndex + 1;
+      if (nextIndex < userMessages.length) {
+        const msg = userMessages[userMessages.length - 1 - nextIndex];
+        setValue(msg);
+        setHistoryIndex(nextIndex);
+      } else {
+        // Already at oldest question, move cursor to beginning
+        textareaRef.current?.setSelectionRange(0, 0);
+      }
+    }
+    if (e.key === 'ArrowDown' && historyIndex >= 0) {
+      e.preventDefault();
+      const nextIndex = historyIndex - 1;
+      if (nextIndex < 0) {
+        setValue('');
+        setHistoryIndex(-1);
+      } else {
+        const msg = userMessages[userMessages.length - 1 - nextIndex];
+        setValue(msg);
+        setHistoryIndex(nextIndex);
+      }
     }
   };
 
