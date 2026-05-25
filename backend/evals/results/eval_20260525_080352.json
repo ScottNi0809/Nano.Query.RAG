@@ -1,0 +1,4244 @@
+{
+  "timestamp_utc": "2026-05-25T08:03:51.997827+00:00",
+  "dataset": "/mnt/c/git/GitHub/WiseTechGlobal/WTG.Query.RAG/backend/evals/datasets/sample_eval.jsonl",
+  "metadata": {
+    "git_commit": "f0eb2c938f7e5ec81bde911f24a405b8a5042055",
+    "dataset_sha256": "54ef9cd8f04d7411261623a873feb25f7a7ca7efe65d660c4d7a8be6343490fe",
+    "llm_provider": "ollama",
+    "model_name": "qwen2.5:14b",
+    "embedding_model": "nomic-embed-text",
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "bm25_weight": 0.5,
+    "k": 4,
+    "use_query_rewrite": false
+  },
+  "k": 4,
+  "use_query_rewrite": false,
+  "summary": {
+    "total_cases": 48,
+    "answerable_cases": 37,
+    "unanswerable_cases": 11,
+    "source_hit_rate": 0.1891891891891892,
+    "mrr": 0.17567567567567569,
+    "keyword_recall": 0.21846846846846849,
+    "precision_at_k": 0.07432432432432433,
+    "chunk_hit_rate_at_1": 0.21621621621621623,
+    "chunk_hit_rate_at_k": 0.2972972972972973,
+    "chunk_full_hit_rate_at_1": 0.16216216216216217,
+    "chunk_full_hit_rate_at_k": 0.16216216216216217,
+    "rank1_keyword_recall": 0.1801801801801802,
+    "ndcg_at_k": 0.26029539874517454,
+    "unanswerable_retrieved_any_rate": 1.0,
+    "unanswerable_keyword_false_positive_rate": 0.2727272727272727,
+    "unanswerable_max_score_rrf": 0.016217306163928323,
+    "unanswerable_max_score_bm25": 80.81818181818181,
+    "unanswerable_max_score_vector": 55.5,
+    "by_language": {
+      "en": {
+        "cases": 22,
+        "answerable_cases": 17,
+        "unanswerable_cases": 5,
+        "source_hit_rate": 0.23529411764705882,
+        "mrr": 0.23529411764705882,
+        "keyword_recall": 0.2549019607843137,
+        "chunk_hit_rate_at_1": 0.29411764705882354,
+        "rank1_keyword_recall": 0.2549019607843137,
+        "ndcg_at_k": 0.29411764705882354,
+        "unanswerable_keyword_false_positive_rate": 0.4
+      },
+      "zh": {
+        "cases": 26,
+        "answerable_cases": 20,
+        "unanswerable_cases": 6,
+        "source_hit_rate": 0.15,
+        "mrr": 0.125,
+        "keyword_recall": 0.1875,
+        "chunk_hit_rate_at_1": 0.15,
+        "rank1_keyword_recall": 0.11666666666666667,
+        "ndcg_at_k": 0.2315464876785729,
+        "unanswerable_keyword_false_positive_rate": 0.16666666666666666
+      }
+    },
+    "by_category": {
+      "cross_language": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "fact": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.08333333333333333,
+        "chunk_hit_rate_at_1": 0.08333333333333333,
+        "rank1_keyword_recall": 0.027777777777777776,
+        "ndcg_at_k": 0.16666666666666666,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "grounding_conflict": {
+        "cases": 2,
+        "answerable_cases": 2,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "hard_negative": {
+        "cases": 4,
+        "answerable_cases": 0,
+        "unanswerable_cases": 4,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "near_miss": {
+        "cases": 2,
+        "answerable_cases": 0,
+        "unanswerable_cases": 2,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 1.0
+      },
+      "numeric": {
+        "cases": 10,
+        "answerable_cases": 10,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.03333333333333333,
+        "chunk_hit_rate_at_1": 0.1,
+        "rank1_keyword_recall": 0.03333333333333333,
+        "ndcg_at_k": 0.1,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "project_fact": {
+        "cases": 7,
+        "answerable_cases": 7,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 1.0,
+        "mrr": 0.9285714285714286,
+        "keyword_recall": 0.9642857142857143,
+        "chunk_hit_rate_at_1": 0.8571428571428571,
+        "rank1_keyword_recall": 0.8571428571428571,
+        "ndcg_at_k": 0.9472756790816368,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "unanswerable": {
+        "cases": 5,
+        "answerable_cases": 0,
+        "unanswerable_cases": 5,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 0.2
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "eval-001",
+      "language": "en",
+      "category": "fact",
+      "question": "What is Elon Zhao's title at WiseTechGlobal?",
+      "answerable": true,
+      "queries": [
+        "What is Elon Zhao's title at WiseTechGlobal?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "keywords_found": [
+        "WiseTechGlobal"
+      ],
+      "keywords_missing": [
+        "Elon Zhao",
+        "Lead Software Engineer"
+      ],
+      "keyword_recall": 0.3333333333333333,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.015877016129032258,
+      "max_score_bm25": 63.6,
+      "max_score_vector": 52.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015877016129032258,
+          "score_bm25": 60.4,
+          "score_vector": 47.9,
+          "keyword_recall": 0.3333333333333333,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 63.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 52.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 50.2,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-002",
+      "language": "zh",
+      "category": "fact",
+      "question": "Elon Zhao 在 WiseTechGlobal 的职位是什么？",
+      "answerable": true,
+      "queries": [
+        "Elon Zhao 在 WiseTechGlobal 的职位是什么？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "keywords_found": [
+        "WiseTechGlobal"
+      ],
+      "keywords_missing": [
+        "Elon Zhao",
+        "Lead Software Engineer"
+      ],
+      "keyword_recall": 0.3333333333333333,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.5,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 58.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 91.2,
+          "score_vector": 58.1,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 54.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.3333333333333333,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 50.7,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-003",
+      "language": "en",
+      "category": "project_fact",
+      "question": "What does WTG.Query.RAG implement?",
+      "answerable": true,
+      "queries": [
+        "What does WTG.Query.RAG implement?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Retrieval-Augmented Generation",
+        "LangChain"
+      ],
+      "keywords_found": [
+        "Retrieval-Augmented Generation",
+        "LangChain"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 85.4,
+      "max_score_vector": 55.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 85.4,
+          "score_vector": 55.3,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 44.2,
+          "score_vector": 53.3,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015877016129032258,
+          "score_bm25": 43.2,
+          "score_vector": 53.9,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 43.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        }
+      ]
+    },
+    {
+      "id": "eval-004",
+      "language": "zh",
+      "category": "project_fact",
+      "question": "WTG.Query.RAG 项目使用什么框架实现 RAG 管线？",
+      "answerable": true,
+      "queries": [
+        "WTG.Query.RAG 项目使用什么框架实现 RAG 管线？"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "LangChain",
+        "Retrieval-Augmented Generation"
+      ],
+      "keywords_found": [
+        "LangChain",
+        "Retrieval-Augmented Generation"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 87.7,
+      "max_score_vector": 57.0,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 87.7,
+          "score_vector": 57.0,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 74.9,
+          "score_vector": 52.9,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 52.8,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-005",
+      "language": "en",
+      "category": "project_fact",
+      "question": "Which document formats can the RAG system ingest?",
+      "answerable": true,
+      "queries": [
+        "Which document formats can the RAG system ingest?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "PDF",
+        "Markdown",
+        "plain text"
+      ],
+      "keywords_found": [
+        "PDF",
+        "Markdown",
+        "plain text"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 90.8,
+      "max_score_vector": 58.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 90.8,
+          "score_vector": 58.6,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 55.6,
+          "score_vector": 54.3,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 55.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "can check that before moving on will do. \n3. Has a tangible completeness to it, so the next piece is a \ndifferent piece yet to be started. \nIf a defect or something more urgent arrives, the more completeness there is to the chunk, the \neasier it will be to return and do the next piece. This is most "
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 52.2,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-006",
+      "language": "zh",
+      "category": "project_fact",
+      "question": "这个 RAG 系统可以导入哪些类型的文档？",
+      "answerable": true,
+      "queries": [
+        "这个 RAG 系统可以导入哪些类型的文档？"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 2,
+      "reciprocal_rank": 0.5,
+      "expected_keywords": [
+        "PDF",
+        "Markdown",
+        "plain text",
+        "纯文本"
+      ],
+      "keywords_found": [
+        "PDF",
+        "Markdown",
+        "plain text"
+      ],
+      "keywords_missing": [
+        "纯文本"
+      ],
+      "keyword_recall": 0.75,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714574,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 57.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 78.7,
+          "score_vector": 52.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 78.0,
+          "score_vector": 57.4,
+          "keyword_recall": 0.75,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 48.6,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-007",
+      "language": "en",
+      "category": "project_fact",
+      "question": "What vector store is used by the sample RAG project?",
+      "answerable": true,
+      "queries": [
+        "What vector store is used by the sample RAG project?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_found": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 94.2,
+      "max_score_vector": 69.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 94.2,
+          "score_vector": 69.2,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 79.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "can check that before moving on will do. \n3. Has a tangible completeness to it, so the next piece is a \ndifferent piece yet to be started. \nIf a defect or something more urgent arrives, the more completeness there is to the chunk, the \neasier it will be to return and do the next piece. This is most "
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 52.9,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 76.2,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        }
+      ]
+    },
+    {
+      "id": "eval-008",
+      "language": "zh",
+      "category": "project_fact",
+      "question": "sample 文档中提到使用哪个向量数据库或向量存储？",
+      "answerable": true,
+      "queries": [
+        "sample 文档中提到使用哪个向量数据库或向量存储？"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_found": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 75.8,
+      "max_score_vector": 64.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 75.8,
+          "score_vector": 64.1,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 51.9,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 3,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 52.3,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-009",
+      "language": "zh",
+      "category": "grounding_conflict",
+      "question": "科比布莱恩特是NBA球星还是路边社记者？",
+      "answerable": true,
+      "queries": [
+        "科比布莱恩特是NBA球星还是路边社记者？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 52.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 78.7,
+          "score_vector": 52.8,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 51.7,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 49.3,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-010",
+      "language": "zh",
+      "category": "fact",
+      "question": "根据 sample.txt，慧咨环球据传由于什么原因计划裁员？",
+      "answerable": true,
+      "queries": [
+        "根据 sample.txt，慧咨环球据传由于什么原因计划裁员？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "AI转型",
+        "员工削减",
+        "慧咨环球"
+      ],
+      "keywords_found": [
+        "慧咨环球"
+      ],
+      "keywords_missing": [
+        "AI转型",
+        "员工削减"
+      ],
+      "keyword_recall": 0.3333333333333333,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.5,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 85.6,
+      "max_score_vector": 63.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 75.8,
+          "score_vector": 63.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015873015873015872,
+          "score_bm25": 0.0,
+          "score_vector": 51.2,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 3,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 85.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.3333333333333333,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 52.3,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-011",
+      "language": "zh",
+      "category": "numeric",
+      "question": "sample.txt 中提到慧咨环球最多计划削减多少比例的员工？",
+      "answerable": true,
+      "queries": [
+        "sample.txt 中提到慧咨环球最多计划削减多少比例的员工？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "至多50%",
+        "员工削减计划"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "至多50%",
+        "员工削减计划"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 90.6,
+      "max_score_vector": 62.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 75.8,
+          "score_vector": 62.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 90.6,
+          "score_vector": 51.5,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 51.6,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-012",
+      "language": "zh",
+      "category": "numeric",
+      "question": "中国地区员工微信群声张要求的最高赔偿标准是什么？",
+      "answerable": true,
+      "queries": [
+        "中国地区员工微信群声张要求的最高赔偿标准是什么？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "2*N",
+        "赔偿",
+        "工作年限"
+      ],
+      "keywords_found": [
+        "赔偿"
+      ],
+      "keywords_missing": [
+        "2*N",
+        "工作年限"
+      ],
+      "keyword_recall": 0.3333333333333333,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.3333333333333333,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 52.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 91.2,
+          "score_vector": 52.5,
+          "keyword_recall": 0.3333333333333333,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 49.4,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 47.9,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-013",
+      "language": "zh",
+      "category": "fact",
+      "question": "据传是谁识破并拒绝了阿祖的小号申请？",
+      "answerable": true,
+      "queries": [
+        "据传是谁识破并拒绝了阿祖的小号申请？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 62.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 91.2,
+          "score_vector": 62.6,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 51.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 49.3,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-014",
+      "language": "en",
+      "category": "cross_language",
+      "question": "According to the Chinese WTG rumor section, who rejected Azu's attempt to join the WeChat group?",
+      "answerable": true,
+      "queries": [
+        "According to the Chinese WTG rumor section, who rejected Azu's attempt to join the WeChat group?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.016133229247983348,
+      "max_score_bm25": 82.2,
+      "max_score_vector": 48.7,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 82.2,
+          "score_vector": 48.2,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 48.7,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 78.4,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "and used completion of requirements that will deliver value to end users, or handovers to a \nparty outside of the team. \n• For items on our Long Range plan, we have identified the composite chunks of deliverable \nvalue within an item sufficient to split the items where appropriate, and identified th"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 48.5,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-015",
+      "language": "zh",
+      "category": "fact",
+      "question": "Anthropic 的新款通用模型叫什么名字？",
+      "answerable": true,
+      "queries": [
+        "Anthropic 的新款通用模型叫什么名字？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Anthropic",
+        "Mythos",
+        "通用模型"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Anthropic",
+        "Mythos",
+        "通用模型"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 57.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 78.7,
+          "score_vector": 57.3,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 51.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 48.9,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-016",
+      "language": "zh",
+      "category": "fact",
+      "question": "特朗普为什么推迟签署关于 AI 的行政令？",
+      "answerable": true,
+      "queries": [
+        "特朗普为什么推迟签署关于 AI 的行政令？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "推迟签署",
+        "AI的行政令",
+        "对华竞争地位"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "推迟签署",
+        "AI的行政令",
+        "对华竞争地位"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 53.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 78.7,
+          "score_vector": 53.6,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 51.9,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 51.6,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-017",
+      "language": "zh",
+      "category": "numeric",
+      "question": "小米 YU7 GT 的定价是多少？",
+      "answerable": true,
+      "queries": [
+        "小米 YU7 GT 的定价是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "小米YU7 GT",
+        "38.99万元"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "小米YU7 GT",
+        "38.99万元"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 88.1,
+      "max_score_vector": 54.0,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 88.1,
+          "score_vector": 54.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 51.6,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 49.0,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-018",
+      "language": "zh",
+      "category": "numeric",
+      "question": "小米 YU7 GT 的 CLTC 续航是多少？",
+      "answerable": true,
+      "queries": [
+        "小米 YU7 GT 的 CLTC 续航是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "CLTC",
+        "705km"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "CLTC",
+        "705km"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 88.1,
+      "max_score_vector": 55.7,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 88.1,
+          "score_vector": 55.7,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 52.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 49.6,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-019",
+      "language": "en",
+      "category": "numeric",
+      "question": "What is the maximum horsepower of Xiaomi YU7 GT?",
+      "answerable": true,
+      "queries": [
+        "What is the maximum horsepower of Xiaomi YU7 GT?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "1003PS",
+        "最大马力"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "1003PS",
+        "最大马力"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.016009221311475412,
+      "max_score_bm25": 73.5,
+      "max_score_vector": 50.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016009221311475412,
+          "score_bm25": 73.5,
+          "score_vector": 48.9,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 71.6,
+          "score_vector": 49.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 50.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 49.6,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        }
+      ]
+    },
+    {
+      "id": "eval-020",
+      "language": "en",
+      "category": "numeric",
+      "question": "What Nürburgring SUV lap time did Xiaomi YU7 GT achieve?",
+      "answerable": true,
+      "queries": [
+        "What Nürburgring SUV lap time did Xiaomi YU7 GT achieve?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "7分22秒755",
+        "纽北",
+        "SUV"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "7分22秒755",
+        "纽北",
+        "SUV"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.016009221311475412,
+      "max_score_bm25": 74.9,
+      "max_score_vector": 56.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016009221311475412,
+          "score_bm25": 45.1,
+          "score_vector": 56.4,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015873015873015872,
+          "score_bm25": 66.4,
+          "score_vector": 50.9,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 74.9,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 72.2,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        }
+      ]
+    },
+    {
+      "id": "eval-021",
+      "language": "zh",
+      "category": "numeric",
+      "question": "成都 2030 年地区生产总值目标是多少？",
+      "answerable": true,
+      "queries": [
+        "成都 2030 年地区生产总值目标是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "2030年",
+        "3.2万亿元",
+        "成都"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "2030年",
+        "3.2万亿元",
+        "成都"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 87.0,
+      "max_score_vector": 56.0,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 87.0,
+          "score_vector": 56.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 49.4,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 49.4,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-022",
+      "language": "zh",
+      "category": "numeric",
+      "question": "2025 年成都地区生产总值是多少？",
+      "answerable": true,
+      "queries": [
+        "2025 年成都地区生产总值是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "2025年",
+        "24763.6亿元"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "2025年",
+        "24763.6亿元"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 87.0,
+      "max_score_vector": 54.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 87.0,
+          "score_vector": 54.6,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 50.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 49.7,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 49.8,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        }
+      ]
+    },
+    {
+      "id": "eval-023",
+      "language": "en",
+      "category": "fact",
+      "question": "What major SpaceX feat happened in 2008 according to the sample?",
+      "answerable": true,
+      "queries": [
+        "What major SpaceX feat happened in 2008 according to the sample?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "2008",
+        "liquid-fuelled rocket",
+        "orbit"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "2008",
+        "liquid-fuelled rocket",
+        "orbit"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 78.2,
+      "max_score_vector": 51.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 78.2,
+          "score_vector": 51.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 51.2,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 72.1,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 72.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        }
+      ]
+    },
+    {
+      "id": "eval-024",
+      "language": "en",
+      "category": "fact",
+      "question": "What SpaceX rocket recovery achievement happened in 2015?",
+      "answerable": true,
+      "queries": [
+        "What SpaceX rocket recovery achievement happened in 2015?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "2015",
+        "booster",
+        "return to Earth",
+        "re-used"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "2015",
+        "booster",
+        "return to Earth",
+        "re-used"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.015625,
+      "max_score_bm25": 57.6,
+      "max_score_vector": 50.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 38.1,
+          "score_vector": 50.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 57.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        },
+        {
+          "rank": 3,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 50.4,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 53.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        }
+      ]
+    },
+    {
+      "id": "eval-025",
+      "language": "zh",
+      "category": "cross_language",
+      "question": "SpaceX 是否已经回收过火箭第二级？",
+      "answerable": true,
+      "queries": [
+        "SpaceX 是否已经回收过火箭第二级？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "second stage",
+        "no one has yet recovered",
+        "1,500°C"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "second stage",
+        "no one has yet recovered",
+        "1,500°C"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 74.9,
+      "max_score_vector": 49.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 74.9,
+          "score_vector": 49.8,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 48.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 47.1,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-026",
+      "language": "en",
+      "category": "fact",
+      "question": "Who was Tim Cook's legendary predecessor at Apple?",
+      "answerable": true,
+      "queries": [
+        "Who was Tim Cook's legendary predecessor at Apple?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Steve Jobs",
+        "predecessor",
+        "Tim Cook"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Steve Jobs",
+        "predecessor",
+        "Tim Cook"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.015877016129032258,
+      "max_score_bm25": 68.6,
+      "max_score_vector": 50.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015877016129032258,
+          "score_bm25": 64.8,
+          "score_vector": 48.8,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 68.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 50.6,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 4,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 50.4,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        }
+      ]
+    },
+    {
+      "id": "eval-027",
+      "language": "en",
+      "category": "numeric",
+      "question": "How many iPhones did Tim Cook put in pockets according to the sample?",
+      "answerable": true,
+      "queries": [
+        "How many iPhones did Tim Cook put in pockets according to the sample?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "1.5bn",
+        "pockets",
+        "Tim Cook"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "1.5bn",
+        "pockets",
+        "Tim Cook"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 86.6,
+      "max_score_vector": 51.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 78.2,
+          "score_vector": 51.6,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 86.6,
+          "score_vector": 49.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 49.2,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 71.2,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  4 \n© 2022 WiseTech Global   10 November 2022  \nExecution Chunking Guidance – Objective 2 \nExecution Chunking is all about determining when the best points are to get the input of others, \nreview work done so far, and potentially put the job d"
+        }
+      ]
+    },
+    {
+      "id": "eval-028",
+      "language": "en",
+      "category": "numeric",
+      "question": "How much value did Tim Cook stuff into Apple shareholders' pockets according to the sample?",
+      "answerable": true,
+      "queries": [
+        "How much value did Tim Cook stuff into Apple shareholders' pockets according to the sample?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "$4.6trn",
+        "shareholders",
+        "Tim Cook"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "$4.6trn",
+        "shareholders",
+        "Tim Cook"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.016133229247983348,
+      "max_score_bm25": 86.7,
+      "max_score_vector": 54.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 86.7,
+          "score_vector": 52.4,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 74.9,
+          "score_vector": 54.2,
+          "keyword_recall": 0.0,
+          "preview": "and used completion of requirements that will deliver value to end users, or handovers to a \nparty outside of the team. \n• For items on our Long Range plan, we have identified the composite chunks of deliverable \nvalue within an item sufficient to split the items where appropriate, and identified th"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 85.5,
+          "score_vector": 54.2,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 73.6,
+          "score_vector": 51.4,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-029",
+      "language": "en",
+      "category": "fact",
+      "question": "Who is described as the secretary-general of NATO?",
+      "answerable": true,
+      "queries": [
+        "Who is described as the secretary-general of NATO?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.016133229247983348,
+      "max_score_bm25": 78.5,
+      "max_score_vector": 51.7,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 78.5,
+          "score_vector": 51.0,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 51.7,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 74.4,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 4,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 51.5,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-030",
+      "language": "zh",
+      "category": "unanswerable",
+      "question": "WiseTechGlobal 的 CEO 是谁？",
+      "answerable": false,
+      "queries": [
+        "WiseTechGlobal 的 CEO 是谁？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 88.1,
+      "max_score_vector": 57.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 88.1,
+          "score_vector": 57.5,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 54.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 49.7,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-031",
+      "language": "en",
+      "category": "unanswerable",
+      "question": "What is the exact release date of Anthropic Mythos?",
+      "answerable": false,
+      "queries": [
+        "What is the exact release date of Anthropic Mythos?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.015877016129032258,
+      "max_score_bm25": 73.5,
+      "max_score_vector": 54.0,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015877016129032258,
+          "score_bm25": 71.6,
+          "score_vector": 50.6,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 73.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 54.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 53.1,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-032",
+      "language": "zh",
+      "category": "unanswerable",
+      "question": "小米 YU7 GT 的电池容量是多少？",
+      "answerable": false,
+      "queries": [
+        "小米 YU7 GT 的电池容量是多少？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 88.1,
+      "max_score_vector": 55.7,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 88.1,
+          "score_vector": 55.7,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 52.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 49.7,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        }
+      ]
+    },
+    {
+      "id": "eval-033",
+      "language": "en",
+      "category": "near_miss",
+      "question": "What is Elon Musk's title at WiseTechGlobal?",
+      "answerable": false,
+      "queries": [
+        "What is Elon Musk's title at WiseTechGlobal?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal",
+        "Elon Musk"
+      ],
+      "false_positive_keywords_found": [
+        "WiseTechGlobal"
+      ],
+      "false_positive_keywords_missing": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "Elon Musk"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.015877016129032258,
+      "max_score_bm25": 63.6,
+      "max_score_vector": 52.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015877016129032258,
+          "score_bm25": 60.4,
+          "score_vector": 47.9,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 63.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 52.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 50.2,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-034",
+      "language": "zh",
+      "category": "near_miss",
+      "question": "Elon Musk 在 WiseTechGlobal 的职位是什么？",
+      "answerable": false,
+      "queries": [
+        "Elon Musk 在 WiseTechGlobal 的职位是什么？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal",
+        "Elon Musk"
+      ],
+      "false_positive_keywords_found": [
+        "WiseTechGlobal"
+      ],
+      "false_positive_keywords_missing": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "Elon Musk"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 58.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 91.2,
+          "score_vector": 58.1,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 54.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 50.7,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-035",
+      "language": "en",
+      "category": "unanswerable",
+      "question": "Who is the CEO of OpenAI according to the sample documents?",
+      "answerable": false,
+      "queries": [
+        "Who is the CEO of OpenAI according to the sample documents?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "CEO",
+        "OpenAI",
+        "Sam Altman"
+      ],
+      "false_positive_keywords_found": [
+        "CEO",
+        "OpenAI"
+      ],
+      "false_positive_keywords_missing": [
+        "Sam Altman"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 90.1,
+      "max_score_vector": 60.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 90.1,
+          "score_vector": 60.2,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 77.4,
+          "score_vector": 52.5,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 83.4,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "• Team collaboration improves  \n• Development is more agile, easier to \ncourse correct, and more responsive \nto feedback. \n• The mental burden experienced in \nreviews is reduced  \n• Visibility improves making it easier to \ntrack progress, reduce scope creep \nand avoid rework \n• The flow of work is s"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 52.9,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-036",
+      "language": "zh",
+      "category": "unanswerable",
+      "question": "Anthropic Mythos 的参数规模是多少？",
+      "answerable": false,
+      "queries": [
+        "Anthropic Mythos 的参数规模是多少？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "Anthropic",
+        "Mythos",
+        "参数"
+      ],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [
+        "Anthropic",
+        "Mythos",
+        "参数"
+      ],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 88.1,
+      "max_score_vector": 57.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 88.1,
+          "score_vector": 57.8,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 54.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 50.5,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-037",
+      "language": "en",
+      "category": "hard_negative",
+      "question": "What is the battery capacity of Xiaomi YU7 GT in kWh?",
+      "answerable": false,
+      "queries": [
+        "What is the battery capacity of Xiaomi YU7 GT in kWh?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "小米YU7 GT",
+        "CLTC",
+        "705km",
+        "1003PS"
+      ],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [
+        "小米YU7 GT",
+        "CLTC",
+        "705km",
+        "1003PS"
+      ],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.016133229247983348,
+      "max_score_bm25": 75.7,
+      "max_score_vector": 53.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 75.7,
+          "score_vector": 50.1,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 71.6,
+          "score_vector": 49.9,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 53.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 75.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        }
+      ]
+    },
+    {
+      "id": "eval-038",
+      "language": "zh",
+      "category": "hard_negative",
+      "question": "小米 YU7 GT 的车身颜色有哪些？",
+      "answerable": false,
+      "queries": [
+        "小米 YU7 GT 的车身颜色有哪些？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "小米YU7 GT",
+        "车身颜色",
+        "38.99万元"
+      ],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [
+        "小米YU7 GT",
+        "车身颜色",
+        "38.99万元"
+      ],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 56.0,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 78.7,
+          "score_vector": 56.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 51.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 50.6,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-039",
+      "language": "en",
+      "category": "hard_negative",
+      "question": "What exact date did SpaceX recover a rocket second stage?",
+      "answerable": false,
+      "queries": [
+        "What exact date did SpaceX recover a rocket second stage?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "second stage",
+        "recovered",
+        "SpaceX"
+      ],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [
+        "second stage",
+        "recovered",
+        "SpaceX"
+      ],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.015749007936507936,
+      "max_score_bm25": 60.7,
+      "max_score_vector": 51.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 55.9,
+          "score_vector": 48.9,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 60.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        },
+        {
+          "rank": 3,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 51.2,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 56.3,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        }
+      ]
+    },
+    {
+      "id": "eval-040",
+      "language": "zh",
+      "category": "hard_negative",
+      "question": "成都 2030 年的人口目标是多少？",
+      "answerable": false,
+      "queries": [
+        "成都 2030 年的人口目标是多少？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "成都",
+        "2030年",
+        "3.2万亿元"
+      ],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [
+        "成都",
+        "2030年",
+        "3.2万亿元"
+      ],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 54.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 91.2,
+          "score_vector": 54.4,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.016129032258064516,
+          "score_bm25": 0.0,
+          "score_vector": 48.6,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 48.1,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-041",
+      "language": "en",
+      "category": "cross_language",
+      "question": "According to the Chinese Xiaomi section, what is Xiaomi YU7 GT's zero-to-100 acceleration time?",
+      "answerable": true,
+      "queries": [
+        "According to the Chinese Xiaomi section, what is Xiaomi YU7 GT's zero-to-100 acceleration time?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "小米YU7 GT",
+        "零百加速",
+        "2.92s"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "小米YU7 GT",
+        "零百加速",
+        "2.92s"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.00819672131147541,
+      "max_score_bm25": 79.6,
+      "max_score_vector": 56.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 79.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 56.4,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 79.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        },
+        {
+          "rank": 4,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-042",
+      "language": "zh",
+      "category": "cross_language",
+      "question": "根据英文段落，Tim Cook 任内苹果市值增长了多少倍？",
+      "answerable": true,
+      "queries": [
+        "根据英文段落，Tim Cook 任内苹果市值增长了多少倍？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Tim Cook",
+        "market value",
+        "11-fold"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Tim Cook",
+        "market value",
+        "11-fold"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 74.9,
+      "max_score_vector": 53.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 74.9,
+          "score_vector": 51.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 53.4,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 48.5,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-043",
+      "language": "zh",
+      "category": "cross_language",
+      "question": "根据英文段落，Mark Rutte 被描述为什么组织的秘书长？",
+      "answerable": true,
+      "queries": [
+        "根据英文段落，Mark Rutte 被描述为什么组织的秘书长？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 54.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 78.7,
+          "score_vector": 51.2,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 48.3,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    },
+    {
+      "id": "eval-044",
+      "language": "en",
+      "category": "cross_language",
+      "question": "According to the Chinese Chengdu section, what national strategy was implemented in the past five years?",
+      "answerable": true,
+      "queries": [
+        "According to the Chinese Chengdu section, what national strategy was implemented in the past five years?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "成渝地区双城经济圈",
+        "国家实施",
+        "战略"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "成渝地区双城经济圈",
+        "国家实施",
+        "战略"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.00819672131147541,
+      "max_score_bm25": 83.5,
+      "max_score_vector": 52.9,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 83.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 52.9,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 75.4,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 52.4,
+          "keyword_recall": 0.0,
+          "preview": "and used completion of requirements that will deliver value to end users, or handovers to a \nparty outside of the team. \n• For items on our Long Range plan, we have identified the composite chunks of deliverable \nvalue within an item sufficient to split the items where appropriate, and identified th"
+        }
+      ]
+    },
+    {
+      "id": "eval-045",
+      "language": "zh",
+      "category": "fact",
+      "question": "SpaceX 第二级火箭再入大气层时需要承受大约多少温度？",
+      "answerable": true,
+      "queries": [
+        "SpaceX 第二级火箭再入大气层时需要承受大约多少温度？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "second stage",
+        "1,500°C",
+        "atmospheric re-entry"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "second stage",
+        "1,500°C",
+        "atmospheric re-entry"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 0.0,
+      "max_score_vector": 49.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 46.9,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 49.8,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 46.7,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        }
+      ]
+    },
+    {
+      "id": "eval-046",
+      "language": "en",
+      "category": "fact",
+      "question": "Which flaw did Clausewitz suggest was fatal in a commander?",
+      "answerable": true,
+      "queries": [
+        "Which flaw did Clausewitz suggest was fatal in a commander?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "Clausewitz",
+        "obstinacy",
+        "better judgment"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Clausewitz",
+        "obstinacy",
+        "better judgment"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.00819672131147541,
+      "max_score_bm25": 72.0,
+      "max_score_vector": 51.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 72.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 51.4,
+          "keyword_recall": 0.0,
+          "preview": "• Lead times waiting for feedback or inputs from people outside your team, will reduce (if that \nis currently significant \nAdditional Outcomes (Optional Scope) \nThis course contains some optional steps. If you complete these steps, you can also expect the \nfollowing outcomes:  \n• You can course-corr"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 51.8,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  2 \n© 2022 WiseTech Global   10 November 2022  \nChunking Module Outcomes \n \nImmediate Outcomes \nIn a couple of days once you’ve completed this course, you should expect:  \n• To have more, smaller chunks of work flowing, with quality checks in "
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 51.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  4 \n© 2022 WiseTech Global   10 November 2022  \nExecution Chunking Guidance – Objective 2 \nExecution Chunking is all about determining when the best points are to get the input of others, \nreview work done so far, and potentially put the job d"
+        }
+      ]
+    },
+    {
+      "id": "eval-047",
+      "language": "zh",
+      "category": "grounding_conflict",
+      "question": "根据 sample，科比·布莱恩特在这篇材料中的身份是什么？",
+      "answerable": true,
+      "queries": [
+        "根据 sample，科比·布莱恩特在这篇材料中的身份是什么？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 58.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "374a81f9-e9aa-4a4b-bc96-cbe066b0257a_sample_2.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 91.2,
+          "score_vector": 52.0,
+          "keyword_recall": 0.0,
+          "preview": "C罗在慧咨环球的年薪是50W。\n老板阿祖要裁掉C罗，给出的赔偿标准是n + 1。\nRonaldo在WTG已经工作了3年。"
+        },
+        {
+          "rank": 2,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 75.8,
+          "score_vector": 58.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  1 \n© 2022 WiseTech Global   10 November 2022  \nChunking Productivity Module – Overview \nChunking has significant benefits for software development teams and businesses .  It impacts on \nboth sides of the core conflict in all software developm"
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 51.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  4 \n© 2022 WiseTech Global   10 November 2022  \nExecution Chunking Guidance – Objective 2 \nExecution Chunking is all about determining when the best points are to get the input of others, \nreview work done so far, and potentially put the job d"
+        }
+      ]
+    },
+    {
+      "id": "eval-048",
+      "language": "en",
+      "category": "project_fact",
+      "question": "Which model provider is used by the sample RAG document?",
+      "answerable": true,
+      "queries": [
+        "Which model provider is used by the sample RAG document?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+        "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "OpenAI embeddings",
+        "chat model"
+      ],
+      "keywords_found": [
+        "OpenAI embeddings",
+        "chat model"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 92.9,
+      "max_score_vector": 59.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "bdc15495-51ca-47d3-bc53-35378f14d903_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 92.9,
+          "score_vector": 59.6,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.015873015873015872,
+          "score_bm25": 70.7,
+          "score_vector": 51.5,
+          "keyword_recall": 0.0,
+          "preview": "Usable - The experience of end users interacting with what we’ve \ndelivered should be positive. \nIt's important to consider usability during the initial design and delivery of a piece of \nwork. \nMany usability enhancements can be added later, however if too much focus is put on \nthe 'minimum' elemen"
+        },
+        {
+          "rank": 3,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 79.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "can check that before moving on will do. \n3. Has a tangible completeness to it, so the next piece is a \ndifferent piece yet to be started. \nIf a defect or something more urgent arrives, the more completeness there is to the chunk, the \neasier it will be to return and do the next piece. This is most "
+        },
+        {
+          "rank": 4,
+          "source": "edc617dd-07b9-4944-905d-315a3edae2e4_Chunking - Overview.pdf",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 53.0,
+          "keyword_recall": 0.0,
+          "preview": "For internal use only  Chunking Key Practice Overview  |  3 \n© 2022 WiseTech Global   10 November 2022  \nDeliverable Chunking Guidance – Objective 1 \nEach 'Deliverable' Chunk must be useful, usable, and used. It must: \nA) Be a completion of requirements, that will deliver value to end-users. \nOr; \nB"
+        }
+      ]
+    }
+  ]
+}
