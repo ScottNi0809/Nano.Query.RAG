@@ -10,15 +10,17 @@ import {
   MenuUnfoldOutlined,
   PlusOutlined,
   CloseOutlined,
+  ExperimentOutlined,
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { useThemeStore } from '@/stores/themeStore';
 import { useChatStore } from '@/stores/chatStore';
 import ChatPage from '@/pages/ChatPage';
 import DocumentsPage from '@/pages/DocumentsPage';
+import BenchmarkPage from '@/pages/BenchmarkPage';
 import '@/i18n';
 
-type PageKey = 'chat' | 'documents';
+type PageKey = 'chat' | 'documents' | 'benchmark';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageKey>('chat');
@@ -98,10 +100,17 @@ export default function App() {
             <FileTextOutlined />
             {!sidebarCollapsed && <span>{t('nav.documents')}</span>}
           </button>
+          <button
+            className={`sidebar-nav-item ${currentPage === 'benchmark' ? 'active' : ''}`}
+            onClick={() => setCurrentPage('benchmark')}
+          >
+            <ExperimentOutlined />
+            {!sidebarCollapsed && <span>{t('nav_benchmark')}</span>}
+          </button>
         </nav>
 
         {/* Chat History */}
-        {currentPage === 'chat' && !sidebarCollapsed && (
+        {!sidebarCollapsed && (
           <div className="sidebar-history">
             <div className="sidebar-history-header">
               <span className="sidebar-history-title">{t('chat.history')}</span>
@@ -138,12 +147,10 @@ export default function App() {
         )}
 
         <div className="sidebar-bottom">
-          {currentPage === 'chat' && (
-            <button className="sidebar-action-btn" onClick={clearMessages} title={t('chat.clearHistory')}>
-              <DeleteOutlined />
-              {!sidebarCollapsed && <span>{t('chat.clearHistory')}</span>}
-            </button>
-          )}
+          <button className="sidebar-action-btn" onClick={clearMessages} title={t('chat.clearHistory')}>
+            <DeleteOutlined />
+            {!sidebarCollapsed && <span>{t('chat.clearHistory')}</span>}
+          </button>
         </div>
       </aside>
 
@@ -153,7 +160,7 @@ export default function App() {
         <header className="app-topbar">
           <div className="topbar-left">
             <h2 className="topbar-title">
-              {currentPage === 'chat' ? t('nav.chat') : t('documents.title')}
+              {currentPage === 'chat' ? t('nav.chat') : currentPage === 'documents' ? t('documents.title') : t('benchmark.title')}
             </h2>
           </div>
           <div className="topbar-right">
@@ -169,7 +176,9 @@ export default function App() {
 
         {/* Page Content */}
         <div className="app-content">
-          {currentPage === 'chat' ? <ChatPage /> : <DocumentsPage />}
+          {currentPage === 'chat' && <ChatPage />}
+          {currentPage === 'documents' && <DocumentsPage />}
+          {currentPage === 'benchmark' && <BenchmarkPage />}
         </div>
       </main>
     </div>

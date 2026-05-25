@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import chat_router, documents_router, health_router
+from app.api.routes import benchmark_router, chat_router, documents_router, health_router
 from app.config import get_settings
 
 logging.basicConfig(
@@ -40,3 +40,4 @@ app.add_middleware(
 app.include_router(health_router, prefix="/api", tags=["health"])
 app.include_router(chat_router, prefix="/api", tags=["chat"])
 app.include_router(documents_router, prefix="/api", tags=["documents"])
+app.include_router(benchmark_router, prefix="/api", tags=["benchmark"])
