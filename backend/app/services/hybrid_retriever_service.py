@@ -93,6 +93,27 @@ class HybridRetrieverService:
         """重新构建 BM25 索引。文档变更后应调用。"""
         self._build_bm25_index()
 
+    @staticmethod
+    def _normalize_vector(distance: float) -> float:
+        """Convert vector distance to similarity percentage (0-100, higher=better).
+
+        ChromaDB returns distances where lower = more similar.
+        Uses 1/(1+d)*100 to map [0,∞) → (0,100].
+        """
+        if distance < 0:
+            distance = 0.0
+        return round(1.0 / (1.0 + distance) * 100, 1)
+
+    @staticmethod
+    def _normalize_bm25(score: float) -> float:
+        """Convert BM25 score to percentage (0-100, higher=better).
+
+        Uses sigmoid-like s/(s+1)*100 to map [0,∞) → [0,100).
+        """
+        if score <= 0:
+            return 0.0
+        return round(score / (score + 1.0) * 100, 1)
+
     def bm25_search(self, query: str, k: int = 4) -> list[tuple[Document, float]]:
         """BM25 关键词检索，返回 (document, score) 列表。"""
         if self._bm25 is None or not self._bm25_docs:
@@ -131,8 +152,8 @@ class HybridRetrieverService:
 
         # 建立 RRF 分数映射（用 page_content 前 200 字符去重）
         rrf_scores: dict[str, float] = {}
-        bm25_raw_scores: dict[str, float] = {}
-        vector_raw_scores: dict[str, float] = {}
+        bm25_raw_scores: dict[str, float] = {}  # None-like: key absent = not found
+        vector_raw_scores: dict[str, float] = {}  # None-like: key absent = not found
         doc_map: dict[str, Document] = {}
 
         # BM25 排名贡献
@@ -154,10 +175,15 @@ class HybridRetrieverService:
 
         results = []
         for content_key, rrf_score in sorted_items[:k]:
+            # Normalize to 0-100 scale for display
+            # Vector: raw score is distance (lower=better), convert to similarity
+            # BM25: raw score is relevance (higher=better), apply sigmoid normalization
+            raw_vec = vector_raw_scores.get(content_key)
+            raw_bm25 = bm25_raw_scores.get(content_key)
             scores = {
                 "rrf": rrf_score,
-                "bm25": bm25_raw_scores.get(content_key, 0.0),
-                "vector": vector_raw_scores.get(content_key, 0.0),
+                "bm25": self._normalize_bm25(raw_bm25) if raw_bm25 is not None else 0.0,
+                "vector": self._normalize_vector(raw_vec) if raw_vec is not None else 0.0,
             }
             results.append((doc_map[content_key], scores))
 
