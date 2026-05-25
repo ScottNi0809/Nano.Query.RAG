@@ -85,3 +85,16 @@ export async function getBenchmarkResult(filename: string): Promise<BenchmarkRes
   const res = await apiClient.get(`/benchmark/results/${encodeURIComponent(filename)}`);
   return res.data;
 }
+
+export interface RunBenchmarkResponse {
+  success: boolean;
+  filename?: string;
+  error?: string;
+}
+
+export async function runBenchmark(k = 4, useQueryRewrite = false): Promise<RunBenchmarkResponse> {
+  const res = await apiClient.post('/benchmark/run', null, {
+    params: { k, use_query_rewrite: useQueryRewrite },
+  });
+  return res.data;
+}

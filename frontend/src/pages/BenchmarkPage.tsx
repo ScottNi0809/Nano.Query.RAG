@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { InfoCircleOutlined, ExperimentOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, ExperimentOutlined, CheckCircleOutlined, CloseCircleOutlined, PlayCircleOutlined, LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { listBenchmarkResults, getBenchmarkResult } from '@/api/benchmark';
+import { listBenchmarkResults, getBenchmarkResult, runBenchmark } from '@/api/benchmark';
 import type { BenchmarkListItem, BenchmarkResult, GroupMetrics } from '@/api/benchmark';
 
 /* ---- helpers ---- */
@@ -242,17 +242,31 @@ export default function BenchmarkPage() {
   const [selected, setSelected] = useState<string>('');
   const [result, setResult] = useState<BenchmarkResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [running, setRunning] = useState(false);
 
-  const fetchList = useCallback(async () => {
+  const fetchList = useCallback(async (selectNewest = false) => {
     try {
       const items = await listBenchmarkResults();
-      setList(items.filter((i) => !i.is_comparison));
-      if (items.length > 0 && !selected) {
-        const first = items.find((i) => !i.is_comparison);
-        if (first) setSelected(first.filename);
+      const nonComp = items.filter((i) => !i.is_comparison);
+      setList(nonComp);
+      if (selectNewest && nonComp.length > 0) {
+        setSelected(nonComp[0].filename);
+      } else if (nonComp.length > 0 && !selected) {
+        setSelected(nonComp[0].filename);
       }
     } catch { /* ignore */ }
   }, []);
+
+  const handleRunEval = useCallback(async () => {
+    setRunning(true);
+    try {
+      const res = await runBenchmark(4, false);
+      if (res.success) {
+        await fetchList(true);
+      }
+    } catch { /* ignore */ }
+    setRunning(false);
+  }, [fetchList]);
 
   useEffect(() => { fetchList(); }, [fetchList]);
 
@@ -279,8 +293,14 @@ export default function BenchmarkPage() {
     return (
       <div className="bm-page">
         <div className="bm-header">
-          <h1 className="bm-title"><ExperimentOutlined /> {t('benchmark.title')}</h1>
-          <p className="bm-subtitle">{t('benchmark.subtitle')}</p>
+          <div>
+            <h1 className="bm-title"><ExperimentOutlined /> {t('benchmark.title')}</h1>
+            <p className="bm-subtitle">{t('benchmark.subtitle')}</p>
+          </div>
+          <button className="bm-run-btn" onClick={handleRunEval} disabled={running}>
+            {running ? <LoadingOutlined spin /> : <PlayCircleOutlined />}
+            {running ? t('benchmark.running') : t('benchmark.runEval')}
+          </button>
         </div>
         <div className="bm-empty">{t('benchmark.noResults')}</div>
       </div>
@@ -298,20 +318,29 @@ export default function BenchmarkPage() {
           <h1 className="bm-title"><ExperimentOutlined /> {t('benchmark.title')}</h1>
           <p className="bm-subtitle">{t('benchmark.subtitle')}</p>
         </div>
-        {list.length > 1 && (
-          <select
-            className="bm-select"
-            value={selected}
-            onChange={(e) => setSelected(e.target.value)}
-          >
-            {list.map((item) => (
-              <option key={item.filename} value={item.filename}>
-                {new Date(item.timestamp_utc).toLocaleString()} — K={item.k}
-                {item.use_query_rewrite ? ' (rewrite)' : ''}
-              </option>
-            ))}
-          </select>
-        )}
+        <div className="bm-header-actions">
+          <button className="bm-run-btn" onClick={handleRunEval} disabled={running}>
+            {running ? <LoadingOutlined spin /> : <PlayCircleOutlined />}
+            {running ? t('benchmark.running') : t('benchmark.runEval')}
+          </button>
+          <button className="bm-refresh-btn" onClick={() => fetchList(true)} title={t('benchmark.refresh')}>
+            <ReloadOutlined />
+          </button>
+          {list.length > 1 && (
+            <select
+              className="bm-select"
+              value={selected}
+              onChange={(e) => setSelected(e.target.value)}
+            >
+              {list.map((item) => (
+                <option key={item.filename} value={item.filename}>
+                  {new Date(item.timestamp_utc).toLocaleString()} — K={item.k}
+                  {item.use_query_rewrite ? ' (rewrite)' : ''}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
       </div>
 
       {/* Case Stats */}
