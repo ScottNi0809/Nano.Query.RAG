@@ -1,0 +1,3942 @@
+{
+  "timestamp_utc": "2026-05-25T03:11:45.431882+00:00",
+  "dataset": "/mnt/c/git/GitHub/WiseTechGlobal/WTG.Query.RAG/backend/evals/datasets/sample_eval.jsonl",
+  "metadata": {
+    "git_commit": "f65a15e4618cbfc617dfdaf76e0c072863cdc85f",
+    "dataset_sha256": "54ef9cd8f04d7411261623a873feb25f7a7ca7efe65d660c4d7a8be6343490fe",
+    "llm_provider": "ollama",
+    "model_name": "qwen2.5:14b",
+    "embedding_model": "nomic-embed-text",
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "bm25_weight": 0.5,
+    "k": 4,
+    "use_query_rewrite": false
+  },
+  "k": 4,
+  "use_query_rewrite": false,
+  "summary": {
+    "total_cases": 48,
+    "answerable_cases": 37,
+    "unanswerable_cases": 11,
+    "source_hit_rate": 1.0,
+    "mrr": 0.927927927927928,
+    "keyword_recall": 0.9211711711711712,
+    "precision_at_k": 0.777027027027027,
+    "chunk_hit_rate_at_1": 0.6216216216216216,
+    "chunk_hit_rate_at_k": 0.9459459459459459,
+    "chunk_full_hit_rate_at_1": 0.5405405405405406,
+    "chunk_full_hit_rate_at_k": 0.8648648648648649,
+    "rank1_keyword_recall": 0.5945945945945946,
+    "ndcg_at_k": 0.8161783073163107,
+    "unanswerable_retrieved_any_rate": 1.0,
+    "unanswerable_keyword_false_positive_rate": 0.7272727272727273,
+    "unanswerable_max_score_rrf": 0.027132514424291265,
+    "unanswerable_max_score_bm25": 83.88181818181819,
+    "unanswerable_max_score_vector": 59.07272727272727,
+    "by_language": {
+      "en": {
+        "cases": 22,
+        "answerable_cases": 17,
+        "unanswerable_cases": 5,
+        "source_hit_rate": 1.0,
+        "mrr": 0.9019607843137255,
+        "keyword_recall": 0.8823529411764706,
+        "chunk_hit_rate_at_1": 0.47058823529411764,
+        "rank1_keyword_recall": 0.4117647058823529,
+        "ndcg_at_k": 0.7161693150833922,
+        "unanswerable_keyword_false_positive_rate": 0.8
+      },
+      "zh": {
+        "cases": 26,
+        "answerable_cases": 20,
+        "unanswerable_cases": 6,
+        "source_hit_rate": 1.0,
+        "mrr": 0.95,
+        "keyword_recall": 0.9541666666666666,
+        "chunk_hit_rate_at_1": 0.75,
+        "rank1_keyword_recall": 0.75,
+        "ndcg_at_k": 0.9011859507142915,
+        "unanswerable_keyword_false_positive_rate": 0.6666666666666666
+      }
+    },
+    "by_category": {
+      "cross_language": {
+        "cases": 6,
+        "answerable_cases": 6,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 1.0,
+        "mrr": 1.0,
+        "keyword_recall": 0.5555555555555556,
+        "chunk_hit_rate_at_1": 0.16666666666666666,
+        "rank1_keyword_recall": 0.16666666666666666,
+        "ndcg_at_k": 0.46030991785715253,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "fact": {
+        "cases": 12,
+        "answerable_cases": 12,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 1.0,
+        "mrr": 1.0,
+        "keyword_recall": 1.0,
+        "chunk_hit_rate_at_1": 0.75,
+        "rank1_keyword_recall": 0.7222222222222222,
+        "ndcg_at_k": 0.905723958602645,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "grounding_conflict": {
+        "cases": 2,
+        "answerable_cases": 2,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 1.0,
+        "mrr": 1.0,
+        "keyword_recall": 1.0,
+        "chunk_hit_rate_at_1": 1.0,
+        "rank1_keyword_recall": 1.0,
+        "ndcg_at_k": 1.0,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "hard_negative": {
+        "cases": 4,
+        "answerable_cases": 0,
+        "unanswerable_cases": 4,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 1.0
+      },
+      "near_miss": {
+        "cases": 2,
+        "answerable_cases": 0,
+        "unanswerable_cases": 2,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 1.0
+      },
+      "numeric": {
+        "cases": 10,
+        "answerable_cases": 10,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 1.0,
+        "mrr": 1.0,
+        "keyword_recall": 1.0,
+        "chunk_hit_rate_at_1": 0.9,
+        "rank1_keyword_recall": 0.8333333333333334,
+        "ndcg_at_k": 0.9544331346043012,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "project_fact": {
+        "cases": 7,
+        "answerable_cases": 7,
+        "unanswerable_cases": 0,
+        "source_hit_rate": 1.0,
+        "mrr": 0.619047619047619,
+        "keyword_recall": 0.9642857142857143,
+        "chunk_hit_rate_at_1": 0.2857142857142857,
+        "rank1_keyword_recall": 0.2857142857142857,
+        "ndcg_at_k": 0.7176741448979758,
+        "unanswerable_keyword_false_positive_rate": 0.0
+      },
+      "unanswerable": {
+        "cases": 5,
+        "answerable_cases": 0,
+        "unanswerable_cases": 5,
+        "source_hit_rate": 0.0,
+        "mrr": 0.0,
+        "keyword_recall": 0.0,
+        "chunk_hit_rate_at_1": 0.0,
+        "rank1_keyword_recall": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_keyword_false_positive_rate": 0.4
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "eval-001",
+      "language": "en",
+      "category": "fact",
+      "question": "What is Elon Zhao's title at WiseTechGlobal?",
+      "answerable": true,
+      "queries": [
+        "What is Elon Zhao's title at WiseTechGlobal?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "keywords_found": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6934264036172708,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 83.7,
+      "max_score_vector": 58.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 58.2,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 2,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 83.7,
+          "score_vector": 57.2,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 67.3,
+          "score_vector": 0.0,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 4,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 53.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        }
+      ]
+    },
+    {
+      "id": "eval-002",
+      "language": "zh",
+      "category": "fact",
+      "question": "Elon Zhao 在 WiseTechGlobal 的职位是什么？",
+      "answerable": true,
+      "queries": [
+        "Elon Zhao 在 WiseTechGlobal 的职位是什么？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "keywords_found": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03200204813108039,
+      "max_score_bm25": 83.7,
+      "max_score_vector": 61.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03200204813108039,
+          "score_bm25": 82.8,
+          "score_vector": 59.9,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 83.7,
+          "score_vector": 61.2,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 3,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.015625,
+          "score_bm25": 82.4,
+          "score_vector": 55.1,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        }
+      ]
+    },
+    {
+      "id": "eval-003",
+      "language": "en",
+      "category": "project_fact",
+      "question": "What does WTG.Query.RAG implement?",
+      "answerable": true,
+      "queries": [
+        "What does WTG.Query.RAG implement?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Retrieval-Augmented Generation",
+        "LangChain"
+      ],
+      "keywords_found": [
+        "Retrieval-Augmented Generation",
+        "LangChain"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 87.4,
+      "max_score_vector": 56.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 87.4,
+          "score_vector": 55.3,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 56.6,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 51.1,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 4,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的CEO阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n"
+        }
+      ]
+    },
+    {
+      "id": "eval-004",
+      "language": "zh",
+      "category": "project_fact",
+      "question": "WTG.Query.RAG 项目使用什么框架实现 RAG 管线？",
+      "answerable": true,
+      "queries": [
+        "WTG.Query.RAG 项目使用什么框架实现 RAG 管线？"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 2,
+      "reciprocal_rank": 0.5,
+      "expected_keywords": [
+        "LangChain",
+        "Retrieval-Augmented Generation"
+      ],
+      "keywords_found": [
+        "LangChain",
+        "Retrieval-Augmented Generation"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 0.3333333333333333,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03175003200204813,
+      "max_score_bm25": 89.3,
+      "max_score_vector": 57.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03175003200204813,
+          "score_bm25": 66.7,
+          "score_vector": 54.9,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 89.3,
+          "score_vector": 57.0,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.016009221311475412,
+          "score_bm25": 0.0,
+          "score_vector": 57.8,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-005",
+      "language": "en",
+      "category": "project_fact",
+      "question": "Which document formats can the RAG system ingest?",
+      "answerable": true,
+      "queries": [
+        "Which document formats can the RAG system ingest?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 2,
+      "reciprocal_rank": 0.5,
+      "expected_keywords": [
+        "PDF",
+        "Markdown",
+        "plain text"
+      ],
+      "keywords_found": [
+        "PDF",
+        "Markdown",
+        "plain text"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.023813524065540194,
+      "max_score_bm25": 92.7,
+      "max_score_vector": 58.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023813524065540194,
+          "score_bm25": 46.7,
+          "score_vector": 51.9,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 92.7,
+          "score_vector": 58.6,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 77.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 50.5,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-006",
+      "language": "zh",
+      "category": "project_fact",
+      "question": "这个 RAG 系统可以导入哪些类型的文档？",
+      "answerable": true,
+      "queries": [
+        "这个 RAG 系统可以导入哪些类型的文档？"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 2,
+      "reciprocal_rank": 0.5,
+      "expected_keywords": [
+        "PDF",
+        "Markdown",
+        "plain text",
+        "纯文本"
+      ],
+      "keywords_found": [
+        "PDF",
+        "Markdown",
+        "plain text"
+      ],
+      "keywords_missing": [
+        "纯文本"
+      ],
+      "keyword_recall": 0.75,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714574,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03200204813108039,
+      "max_score_bm25": 80.6,
+      "max_score_vector": 57.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03200204813108039,
+          "score_bm25": 73.7,
+          "score_vector": 55.1,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 80.6,
+          "score_vector": 57.4,
+          "keyword_recall": 0.75,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 60.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 53.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-007",
+      "language": "en",
+      "category": "project_fact",
+      "question": "What vector store is used by the sample RAG project?",
+      "answerable": true,
+      "queries": [
+        "What vector store is used by the sample RAG project?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 3,
+      "reciprocal_rank": 0.3333333333333333,
+      "expected_keywords": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_found": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.5,
+      "precision_at_k": 0.3333333333333333,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.023813524065540194,
+      "max_score_bm25": 94.9,
+      "max_score_vector": 69.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.023813524065540194,
+          "score_bm25": 62.7,
+          "score_vector": 49.7,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023813524065540194,
+          "score_bm25": 60.8,
+          "score_vector": 49.8,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 94.9,
+          "score_vector": 69.2,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-008",
+      "language": "zh",
+      "category": "project_fact",
+      "question": "sample 文档中提到使用哪个向量数据库或向量存储？",
+      "answerable": true,
+      "queries": [
+        "sample 文档中提到使用哪个向量数据库或向量存储？"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_found": [
+        "Chroma",
+        "vector store"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01639344262295082,
+      "max_score_bm25": 78.7,
+      "max_score_vector": 64.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 78.7,
+          "score_vector": 64.1,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 60.3,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 0.0,
+          "score_vector": 54.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.015625,
+          "score_bm25": 0.0,
+          "score_vector": 52.7,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-009",
+      "language": "zh",
+      "category": "grounding_conflict",
+      "question": "科比布莱恩特是NBA球星还是路边社记者？",
+      "answerable": true,
+      "queries": [
+        "科比布莱恩特是NBA球星还是路边社记者？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keywords_found": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 87.2,
+      "max_score_vector": 54.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 87.2,
+          "score_vector": 54.8,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 60.3,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 54.0,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        }
+      ]
+    },
+    {
+      "id": "eval-010",
+      "language": "zh",
+      "category": "fact",
+      "question": "根据 sample.txt，慧咨环球据传由于什么原因计划裁员？",
+      "answerable": true,
+      "queries": [
+        "根据 sample.txt，慧咨环球据传由于什么原因计划裁员？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "AI转型",
+        "员工削减",
+        "慧咨环球"
+      ],
+      "keywords_found": [
+        "AI转型",
+        "员工削减",
+        "慧咨环球"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.032010245377015606,
+      "max_score_bm25": 90.9,
+      "max_score_vector": 63.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032010245377015606,
+          "score_bm25": 90.9,
+          "score_vector": 50.6,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 78.7,
+          "score_vector": 63.8,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 53.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 4,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 44.4,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        }
+      ]
+    },
+    {
+      "id": "eval-011",
+      "language": "zh",
+      "category": "numeric",
+      "question": "sample.txt 中提到慧咨环球最多计划削减多少比例的员工？",
+      "answerable": true,
+      "queries": [
+        "sample.txt 中提到慧咨环球最多计划削减多少比例的员工？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "至多50%",
+        "员工削减计划"
+      ],
+      "keywords_found": [
+        "至多50%",
+        "员工削减计划"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.032010245377015606,
+      "max_score_bm25": 91.6,
+      "max_score_vector": 62.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032010245377015606,
+          "score_bm25": 91.6,
+          "score_vector": 54.2,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 78.7,
+          "score_vector": 62.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 55.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 4,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 75.1,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        }
+      ]
+    },
+    {
+      "id": "eval-012",
+      "language": "zh",
+      "category": "numeric",
+      "question": "中国地区员工微信群声张要求的最高赔偿标准是什么？",
+      "answerable": true,
+      "queries": [
+        "中国地区员工微信群声张要求的最高赔偿标准是什么？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "2*N",
+        "赔偿",
+        "工作年限"
+      ],
+      "keywords_found": [
+        "2*N",
+        "赔偿",
+        "工作年限"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 92.4,
+      "max_score_vector": 63.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 92.4,
+          "score_vector": 63.8,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的CEO阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 81.9,
+          "score_vector": 56.3,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        }
+      ]
+    },
+    {
+      "id": "eval-013",
+      "language": "zh",
+      "category": "fact",
+      "question": "据传是谁识破并拒绝了阿祖的小号申请？",
+      "answerable": true,
+      "queries": [
+        "据传是谁识破并拒绝了阿祖的小号申请？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keywords_found": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 90.4,
+      "max_score_vector": 55.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 90.4,
+          "score_vector": 55.2,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 79.2,
+          "score_vector": 51.3,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 54.9,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-014",
+      "language": "en",
+      "category": "cross_language",
+      "question": "According to the Chinese WTG rumor section, who rejected Azu's attempt to join the WeChat group?",
+      "answerable": true,
+      "queries": [
+        "According to the Chinese WTG rumor section, who rejected Azu's attempt to join the WeChat group?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "Keen",
+        "识破",
+        "拒绝"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03149801587301587,
+      "max_score_bm25": 82.3,
+      "max_score_vector": 53.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 81.9,
+          "score_vector": 52.7,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 82.3,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 53.8,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        }
+      ]
+    },
+    {
+      "id": "eval-015",
+      "language": "zh",
+      "category": "fact",
+      "question": "Anthropic 的新款通用模型叫什么名字？",
+      "answerable": true,
+      "queries": [
+        "Anthropic 的新款通用模型叫什么名字？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Anthropic",
+        "Mythos",
+        "通用模型"
+      ],
+      "keywords_found": [
+        "Anthropic",
+        "Mythos",
+        "通用模型"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.032010245377015606,
+      "max_score_bm25": 86.5,
+      "max_score_vector": 53.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032010245377015606,
+          "score_bm25": 60.0,
+          "score_vector": 53.6,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 2,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.02407373744050767,
+          "score_bm25": 86.5,
+          "score_vector": 52.6,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的CEO阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 53.1,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-016",
+      "language": "zh",
+      "category": "fact",
+      "question": "特朗普为什么推迟签署关于 AI 的行政令？",
+      "answerable": true,
+      "queries": [
+        "特朗普为什么推迟签署关于 AI 的行政令？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "推迟签署",
+        "AI的行政令",
+        "对华竞争地位"
+      ],
+      "keywords_found": [
+        "推迟签署",
+        "AI的行政令",
+        "对华竞争地位"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 92.0,
+      "max_score_vector": 55.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 92.0,
+          "score_vector": 55.8,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 60.0,
+          "score_vector": 53.2,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 53.5,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-017",
+      "language": "zh",
+      "category": "numeric",
+      "question": "小米 YU7 GT 的定价是多少？",
+      "answerable": true,
+      "queries": [
+        "小米 YU7 GT 的定价是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "小米YU7 GT",
+        "38.99万元"
+      ],
+      "keywords_found": [
+        "小米YU7 GT",
+        "38.99万元"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 57.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 91.2,
+          "score_vector": 57.1,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 75.1,
+          "score_vector": 53.4,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 55.4,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-018",
+      "language": "zh",
+      "category": "numeric",
+      "question": "小米 YU7 GT 的 CLTC 续航是多少？",
+      "answerable": true,
+      "queries": [
+        "小米 YU7 GT 的 CLTC 续航是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "CLTC",
+        "705km"
+      ],
+      "keywords_found": [
+        "CLTC",
+        "705km"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 91.9,
+      "max_score_vector": 58.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 91.9,
+          "score_vector": 58.3,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 75.1,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 58.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-019",
+      "language": "en",
+      "category": "numeric",
+      "question": "What is the maximum horsepower of Xiaomi YU7 GT?",
+      "answerable": true,
+      "queries": [
+        "What is the maximum horsepower of Xiaomi YU7 GT?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "1003PS",
+        "最大马力"
+      ],
+      "keywords_found": [
+        "1003PS",
+        "最大马力"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 84.0,
+      "max_score_vector": 53.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 84.0,
+          "score_vector": 0.0,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 0.0,
+          "score_vector": 53.3,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 63.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 53.5,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-020",
+      "language": "en",
+      "category": "numeric",
+      "question": "What Nürburgring SUV lap time did Xiaomi YU7 GT achieve?",
+      "answerable": true,
+      "queries": [
+        "What Nürburgring SUV lap time did Xiaomi YU7 GT achieve?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "7分22秒755",
+        "纽北",
+        "SUV"
+      ],
+      "keywords_found": [
+        "7分22秒755",
+        "纽北",
+        "SUV"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03149801587301587,
+      "max_score_bm25": 89.2,
+      "max_score_vector": 54.7,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 61.0,
+          "score_vector": 53.9,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 89.2,
+          "score_vector": 0.0,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 54.7,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        }
+      ]
+    },
+    {
+      "id": "eval-021",
+      "language": "zh",
+      "category": "numeric",
+      "question": "成都 2030 年地区生产总值目标是多少？",
+      "answerable": true,
+      "queries": [
+        "成都 2030 年地区生产总值目标是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "2030年",
+        "3.2万亿元",
+        "成都"
+      ],
+      "keywords_found": [
+        "2030年",
+        "3.2万亿元",
+        "成都"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 94.1,
+      "max_score_vector": 63.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 94.1,
+          "score_vector": 63.6,
+          "keyword_recall": 1.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 34.5,
+          "score_vector": 55.9,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        }
+      ]
+    },
+    {
+      "id": "eval-022",
+      "language": "zh",
+      "category": "numeric",
+      "question": "2025 年成都地区生产总值是多少？",
+      "answerable": true,
+      "queries": [
+        "2025 年成都地区生产总值是多少？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "2025年",
+        "24763.6亿元"
+      ],
+      "keywords_found": [
+        "2025年",
+        "24763.6亿元"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 92.4,
+      "max_score_vector": 67.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 92.4,
+          "score_vector": 67.1,
+          "keyword_recall": 1.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 54.4,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-023",
+      "language": "en",
+      "category": "fact",
+      "question": "What major SpaceX feat happened in 2008 according to the sample?",
+      "answerable": true,
+      "queries": [
+        "What major SpaceX feat happened in 2008 according to the sample?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "2008",
+        "liquid-fuelled rocket",
+        "orbit"
+      ],
+      "keywords_found": [
+        "2008",
+        "liquid-fuelled rocket",
+        "orbit"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.023561507936507936,
+      "max_score_bm25": 88.7,
+      "max_score_vector": 54.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 67.6,
+          "score_vector": 53.5,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 88.7,
+          "score_vector": 0.0,
+          "keyword_recall": 1.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 4,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 80.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-024",
+      "language": "en",
+      "category": "fact",
+      "question": "What SpaceX rocket recovery achievement happened in 2015?",
+      "answerable": true,
+      "queries": [
+        "What SpaceX rocket recovery achievement happened in 2015?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "2015",
+        "booster",
+        "return to Earth",
+        "re-used"
+      ],
+      "keywords_found": [
+        "2015",
+        "booster",
+        "return to Earth",
+        "re-used"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 88.2,
+      "max_score_vector": 60.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 88.2,
+          "score_vector": 60.5,
+          "keyword_recall": 1.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 34.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 50.4,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        }
+      ]
+    },
+    {
+      "id": "eval-025",
+      "language": "zh",
+      "category": "cross_language",
+      "question": "SpaceX 是否已经回收过火箭第二级？",
+      "answerable": true,
+      "queries": [
+        "SpaceX 是否已经回收过火箭第二级？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "second stage",
+        "no one has yet recovered",
+        "1,500°C"
+      ],
+      "keywords_found": [
+        "second stage",
+        "no one has yet recovered",
+        "1,500°C"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.02407373744050767,
+      "max_score_bm25": 72.5,
+      "max_score_vector": 53.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.02407373744050767,
+          "score_bm25": 72.5,
+          "score_vector": 50.1,
+          "keyword_recall": 1.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.016009221311475412,
+          "score_bm25": 0.0,
+          "score_vector": 53.1,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 0.0,
+          "score_vector": 50.8,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 4,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-026",
+      "language": "en",
+      "category": "fact",
+      "question": "Who was Tim Cook's legendary predecessor at Apple?",
+      "answerable": true,
+      "queries": [
+        "Who was Tim Cook's legendary predecessor at Apple?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Steve Jobs",
+        "predecessor",
+        "Tim Cook"
+      ],
+      "keywords_found": [
+        "Steve Jobs",
+        "predecessor",
+        "Tim Cook"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.6666666666666666,
+      "ndcg_at_k": 0.9134015924715545,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 89.3,
+      "max_score_vector": 61.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 89.3,
+          "score_vector": 61.3,
+          "keyword_recall": 0.6666666666666666,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 88.7,
+          "score_vector": 56.9,
+          "keyword_recall": 1.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        }
+      ]
+    },
+    {
+      "id": "eval-027",
+      "language": "en",
+      "category": "numeric",
+      "question": "How many iPhones did Tim Cook put in pockets according to the sample?",
+      "answerable": true,
+      "queries": [
+        "How many iPhones did Tim Cook put in pockets according to the sample?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "1.5bn",
+        "pockets",
+        "Tim Cook"
+      ],
+      "keywords_found": [
+        "1.5bn",
+        "pockets",
+        "Tim Cook"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.6666666666666666,
+      "ndcg_at_k": 0.9134015924715545,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.032010245377015606,
+      "max_score_bm25": 84.6,
+      "max_score_vector": 57.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032010245377015606,
+          "score_bm25": 82.9,
+          "score_vector": 57.3,
+          "keyword_recall": 0.6666666666666666,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 84.6,
+          "score_vector": 0.0,
+          "keyword_recall": 1.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 51.6,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 50.3,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        }
+      ]
+    },
+    {
+      "id": "eval-028",
+      "language": "en",
+      "category": "numeric",
+      "question": "How much value did Tim Cook stuff into Apple shareholders' pockets according to the sample?",
+      "answerable": true,
+      "queries": [
+        "How much value did Tim Cook stuff into Apple shareholders' pockets according to the sample?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "$4.6trn",
+        "shareholders",
+        "Tim Cook"
+      ],
+      "keywords_found": [
+        "$4.6trn",
+        "shareholders",
+        "Tim Cook"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.6666666666666666,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.6666666666666666,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 90.1,
+      "max_score_vector": 63.9,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 90.1,
+          "score_vector": 63.9,
+          "keyword_recall": 0.6666666666666666,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 2,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 88.1,
+          "score_vector": 54.1,
+          "keyword_recall": 0.3333333333333333,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 54.2,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-029",
+      "language": "en",
+      "category": "fact",
+      "question": "Who is described as the secretary-general of NATO?",
+      "answerable": true,
+      "queries": [
+        "Who is described as the secretary-general of NATO?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keywords_found": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03175003200204813,
+      "max_score_bm25": 83.5,
+      "max_score_vector": 58.8,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03175003200204813,
+          "score_bm25": 83.4,
+          "score_vector": 55.8,
+          "keyword_recall": 1.0,
+          "preview": "THE FATAL flaw in a commander, suggested Carl von Clausewitz, a 19th-century Prussian general, is obstinacy, or “resistance against our better judgment”. \nFor a modern example of this behaviour, look no further than Mark Rutte, the secretary-general of NATO.\nFor months Mr Rutte has refused to admit "
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 83.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 58.8,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 4,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 55.6,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        }
+      ]
+    },
+    {
+      "id": "eval-030",
+      "language": "zh",
+      "category": "unanswerable",
+      "question": "WiseTechGlobal 的 CEO 是谁？",
+      "answerable": false,
+      "queries": [
+        "WiseTechGlobal 的 CEO 是谁？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.032010245377015606,
+      "max_score_bm25": 75.1,
+      "max_score_vector": 61.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032010245377015606,
+          "score_bm25": 71.7,
+          "score_vector": 58.3,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023813524065540194,
+          "score_bm25": 75.1,
+          "score_vector": 54.3,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 61.1,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-031",
+      "language": "en",
+      "category": "unanswerable",
+      "question": "What is the exact release date of Anthropic Mythos?",
+      "answerable": false,
+      "queries": [
+        "What is the exact release date of Anthropic Mythos?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 69.1,
+      "max_score_vector": 57.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 69.1,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 63.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 53.5,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 57.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-032",
+      "language": "zh",
+      "category": "unanswerable",
+      "question": "小米 YU7 GT 的电池容量是多少？",
+      "answerable": false,
+      "queries": [
+        "小米 YU7 GT 的电池容量是多少？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 90.3,
+      "max_score_vector": 58.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 90.3,
+          "score_vector": 58.3,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 75.1,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 57.9,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-033",
+      "language": "en",
+      "category": "near_miss",
+      "question": "What is Elon Musk's title at WiseTechGlobal?",
+      "answerable": false,
+      "queries": [
+        "What is Elon Musk's title at WiseTechGlobal?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal",
+        "Elon Musk"
+      ],
+      "false_positive_keywords_found": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal",
+        "Elon Musk"
+      ],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 77.3,
+      "max_score_vector": 58.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 77.3,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 58.2,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.015873015873015872,
+          "score_bm25": 75.2,
+          "score_vector": 57.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 4,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 56.9,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的CEO阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n"
+        }
+      ]
+    },
+    {
+      "id": "eval-034",
+      "language": "zh",
+      "category": "near_miss",
+      "question": "Elon Musk 在 WiseTechGlobal 的职位是什么？",
+      "answerable": false,
+      "queries": [
+        "Elon Musk 在 WiseTechGlobal 的职位是什么？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal",
+        "Elon Musk"
+      ],
+      "false_positive_keywords_found": [
+        "Elon Zhao",
+        "Lead Software Engineer",
+        "WiseTechGlobal"
+      ],
+      "false_positive_keywords_missing": [
+        "Elon Musk"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.03175003200204813,
+      "max_score_bm25": 82.4,
+      "max_score_vector": 61.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03175003200204813,
+          "score_bm25": 80.3,
+          "score_vector": 59.9,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.02407373744050767,
+          "score_bm25": 82.4,
+          "score_vector": 55.1,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 61.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-035",
+      "language": "en",
+      "category": "unanswerable",
+      "question": "Who is the CEO of OpenAI according to the sample documents?",
+      "answerable": false,
+      "queries": [
+        "Who is the CEO of OpenAI according to the sample documents?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "CEO",
+        "OpenAI",
+        "Sam Altman"
+      ],
+      "false_positive_keywords_found": [
+        "CEO",
+        "OpenAI"
+      ],
+      "false_positive_keywords_missing": [
+        "Sam Altman"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.023561507936507936,
+      "max_score_bm25": 91.1,
+      "max_score_vector": 60.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 79.9,
+          "score_vector": 53.4,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 91.1,
+          "score_vector": 60.2,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 81.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 59.7,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-036",
+      "language": "zh",
+      "category": "unanswerable",
+      "question": "Anthropic Mythos 的参数规模是多少？",
+      "answerable": false,
+      "queries": [
+        "Anthropic Mythos 的参数规模是多少？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "Anthropic",
+        "Mythos",
+        "参数"
+      ],
+      "false_positive_keywords_found": [
+        "Anthropic",
+        "Mythos"
+      ],
+      "false_positive_keywords_missing": [
+        "参数"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.032262261506047864,
+      "max_score_bm25": 79.2,
+      "max_score_vector": 60.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032262261506047864,
+          "score_bm25": 79.2,
+          "score_vector": 59.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 75.1,
+          "score_vector": 54.9,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 60.3,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-037",
+      "language": "en",
+      "category": "hard_negative",
+      "question": "What is the battery capacity of Xiaomi YU7 GT in kWh?",
+      "answerable": false,
+      "queries": [
+        "What is the battery capacity of Xiaomi YU7 GT in kWh?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "小米YU7 GT",
+        "CLTC",
+        "705km",
+        "1003PS"
+      ],
+      "false_positive_keywords_found": [
+        "小米YU7 GT",
+        "CLTC",
+        "705km",
+        "1003PS"
+      ],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 84.0,
+      "max_score_vector": 56.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 84.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 0.0,
+          "score_vector": 53.8,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 69.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 56.3,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-038",
+      "language": "zh",
+      "category": "hard_negative",
+      "question": "小米 YU7 GT 的车身颜色有哪些？",
+      "answerable": false,
+      "queries": [
+        "小米 YU7 GT 的车身颜色有哪些？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "小米YU7 GT",
+        "车身颜色",
+        "38.99万元"
+      ],
+      "false_positive_keywords_found": [
+        "小米YU7 GT",
+        "38.99万元"
+      ],
+      "false_positive_keywords_missing": [
+        "车身颜色"
+      ],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 91.2,
+      "max_score_vector": 57.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 91.2,
+          "score_vector": 57.5,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 60.0,
+          "score_vector": 53.4,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 56.6,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-039",
+      "language": "en",
+      "category": "hard_negative",
+      "question": "What exact date did SpaceX recover a rocket second stage?",
+      "answerable": false,
+      "queries": [
+        "What exact date did SpaceX recover a rocket second stage?"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "second stage",
+        "recovered",
+        "SpaceX"
+      ],
+      "false_positive_keywords_found": [
+        "second stage",
+        "recovered",
+        "SpaceX"
+      ],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 90.1,
+      "max_score_vector": 60.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 90.1,
+          "score_vector": 60.4,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.015873015873015872,
+          "score_bm25": 0.0,
+          "score_vector": 51.2,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 4,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 49.5,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        }
+      ]
+    },
+    {
+      "id": "eval-040",
+      "language": "zh",
+      "category": "hard_negative",
+      "question": "成都 2030 年的人口目标是多少？",
+      "answerable": false,
+      "queries": [
+        "成都 2030 年的人口目标是多少？"
+      ],
+      "expected_sources": [],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0,
+      "expected_keywords": [],
+      "keywords_found": [],
+      "keywords_missing": [],
+      "keyword_recall": null,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "false_positive_keywords": [
+        "成都",
+        "2030年",
+        "3.2万亿元"
+      ],
+      "false_positive_keywords_found": [
+        "成都",
+        "2030年",
+        "3.2万亿元"
+      ],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": true,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 92.9,
+      "max_score_vector": 59.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 92.9,
+          "score_vector": 59.1,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 64.3,
+          "score_vector": 54.2,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        }
+      ]
+    },
+    {
+      "id": "eval-041",
+      "language": "en",
+      "category": "cross_language",
+      "question": "According to the Chinese Xiaomi section, what is Xiaomi YU7 GT's zero-to-100 acceleration time?",
+      "answerable": true,
+      "queries": [
+        "According to the Chinese Xiaomi section, what is Xiaomi YU7 GT's zero-to-100 acceleration time?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "小米YU7 GT",
+        "零百加速",
+        "2.92s"
+      ],
+      "keywords_found": [
+        "小米YU7 GT",
+        "零百加速",
+        "2.92s"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 0.6666666666666666,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.032010245377015606,
+      "max_score_bm25": 84.0,
+      "max_score_vector": 55.2,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.032010245377015606,
+          "score_bm25": 81.6,
+          "score_vector": 55.2,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "1f06a75e-fc16-405e-b684-4c6fafd78549_sample.txt",
+          "score_rrf": 0.02407373744050767,
+          "score_bm25": 84.0,
+          "score_vector": 54.1,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的CEO阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n"
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-042",
+      "language": "zh",
+      "category": "cross_language",
+      "question": "根据英文段落，Tim Cook 任内苹果市值增长了多少倍？",
+      "answerable": true,
+      "queries": [
+        "根据英文段落，Tim Cook 任内苹果市值增长了多少倍？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Tim Cook",
+        "market value",
+        "11-fold"
+      ],
+      "keywords_found": [
+        "Tim Cook"
+      ],
+      "keywords_missing": [
+        "market value",
+        "11-fold"
+      ],
+      "keyword_recall": 0.3333333333333333,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.5,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.01626123744050767,
+      "max_score_bm25": 75.7,
+      "max_score_vector": 53.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 75.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016133229247983348,
+          "score_bm25": 0.0,
+          "score_vector": 53.3,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 70.1,
+          "score_vector": 0.0,
+          "keyword_recall": 0.3333333333333333,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 4,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 53.4,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-043",
+      "language": "zh",
+      "category": "cross_language",
+      "question": "根据英文段落，Mark Rutte 被描述为什么组织的秘书长？",
+      "answerable": true,
+      "queries": [
+        "根据英文段落，Mark Rutte 被描述为什么组织的秘书长？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keywords_found": [
+        "Mark Rutte",
+        "secretary-general",
+        "NATO"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03175003200204813,
+      "max_score_bm25": 82.8,
+      "max_score_vector": 54.1,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03175003200204813,
+          "score_bm25": 76.9,
+          "score_vector": 52.6,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 82.8,
+          "score_vector": 0.0,
+          "keyword_recall": 1.0,
+          "preview": "THE FATAL flaw in a commander, suggested Carl von Clausewitz, a 19th-century Prussian general, is obstinacy, or “resistance against our better judgment”. \nFor a modern example of this behaviour, look no further than Mark Rutte, the secretary-general of NATO.\nFor months Mr Rutte has refused to admit "
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 54.1,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 52.1,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-044",
+      "language": "en",
+      "category": "cross_language",
+      "question": "According to the Chinese Chengdu section, what national strategy was implemented in the past five years?",
+      "answerable": true,
+      "queries": [
+        "According to the Chinese Chengdu section, what national strategy was implemented in the past five years?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "成渝地区双城经济圈",
+        "国家实施",
+        "战略"
+      ],
+      "keywords_found": [],
+      "keywords_missing": [
+        "成渝地区双城经济圈",
+        "国家实施",
+        "战略"
+      ],
+      "keyword_recall": 0.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": false,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": false,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 86.6,
+      "max_score_vector": 54.4,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 86.6,
+          "score_vector": 54.4,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 78.6,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 54.0,
+          "keyword_recall": 0.0,
+          "preview": "It may have been Steve Jobs, his legendary predecessor, who dreamt up the iPhone, but it was Mr Cook who put one in 1.5bn pockets, making the Apple logo ubiquitous from San Francisco to Seoul. \nApple’s market value has grown 11-fold on Mr Cook’s watch as, counting everything including dividends, he "
+        }
+      ]
+    },
+    {
+      "id": "eval-045",
+      "language": "zh",
+      "category": "fact",
+      "question": "SpaceX 第二级火箭再入大气层时需要承受大约多少温度？",
+      "answerable": true,
+      "queries": [
+        "SpaceX 第二级火箭再入大气层时需要承受大约多少温度？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "second stage",
+        "1,500°C",
+        "atmospheric re-entry"
+      ],
+      "keywords_found": [
+        "second stage",
+        "1,500°C",
+        "atmospheric re-entry"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.02407373744050767,
+      "max_score_bm25": 72.5,
+      "max_score_vector": 51.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.02407373744050767,
+          "score_bm25": 72.5,
+          "score_vector": 49.3,
+          "keyword_recall": 1.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 0.0,
+          "score_vector": 51.5,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 3,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.015749007936507936,
+          "score_bm25": 0.0,
+          "score_vector": 50.7,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        },
+        {
+          "rank": 4,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.007936507936507936,
+          "score_bm25": 0.0,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        }
+      ]
+    },
+    {
+      "id": "eval-046",
+      "language": "en",
+      "category": "fact",
+      "question": "Which flaw did Clausewitz suggest was fatal in a commander?",
+      "answerable": true,
+      "queries": [
+        "Which flaw did Clausewitz suggest was fatal in a commander?"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "Clausewitz",
+        "obstinacy",
+        "better judgment"
+      ],
+      "keywords_found": [
+        "Clausewitz",
+        "obstinacy",
+        "better judgment"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03252247488101534,
+      "max_score_bm25": 89.8,
+      "max_score_vector": 62.5,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03252247488101534,
+          "score_bm25": 89.8,
+          "score_vector": 62.5,
+          "keyword_recall": 1.0,
+          "preview": "THE FATAL flaw in a commander, suggested Carl von Clausewitz, a 19th-century Prussian general, is obstinacy, or “resistance against our better judgment”. \nFor a modern example of this behaviour, look no further than Mark Rutte, the secretary-general of NATO.\nFor months Mr Rutte has refused to admit "
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03149801587301587,
+          "score_bm25": 68.7,
+          "score_vector": 51.6,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        }
+      ]
+    },
+    {
+      "id": "eval-047",
+      "language": "zh",
+      "category": "grounding_conflict",
+      "question": "根据 sample，科比·布莱恩特在这篇材料中的身份是什么？",
+      "answerable": true,
+      "queries": [
+        "根据 sample，科比·布莱恩特在这篇材料中的身份是什么？"
+      ],
+      "expected_sources": [
+        "sample.txt"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 1,
+      "reciprocal_rank": 1.0,
+      "expected_keywords": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keywords_found": [
+        "科比·布莱恩特",
+        "路边社记者",
+        "报告"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": true,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": true,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 1.0,
+      "ndcg_at_k": 1.0,
+      "precision_at_k": 0.75,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.03175003200204813,
+      "max_score_bm25": 87.5,
+      "max_score_vector": 58.3,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.03175003200204813,
+          "score_bm25": 84.7,
+          "score_vector": 56.0,
+          "keyword_recall": 1.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal\n\n慧咨环球近期传出消息，将要由于AI转型，执行至多50%的员工削减计划。据悉，慧咨环球澳洲分部和中国分部的员工，正在尝试谈判、要求更高的裁员赔偿标准。\n根据路边社消息，中国地区日前有近百名员工创建了一个声张要求至高2*N赔偿（其中N为员工在WTG的工作年限）的微信群，群内提出了各种收集WTG非法裁员证据的方式、以及可能的索赔手段。\n据传，WTG的高层阿祖今早伪装小号申请加入该微信群探听消息，被群主Keen识破并拒绝。截止发稿，阿祖尚未对此传言做出回应。路边社记者科比·布莱恩特为您报告。\n\n"
+        },
+        {
+          "rank": 2,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.01626123744050767,
+          "score_bm25": 87.5,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "成都未来5年GDP目标3.2万亿。在此前5年连跨6个千亿之后，成都目标在未来5年连跨8个千亿台阶。\n5月21日，成都市公布“十五五”规划纲要。纲要提出，2030年地区生产总值超过3.2万亿元。2025年成都地区生产总值为24763.6亿元，因此，在未来5年，成都将增加7000多亿，跨越8个千亿关口。\n“十四五”期间，成都地区生产总值年均增长5.8%，在万亿GDP城市尤其是经济总量前十位城市中增速位居前列。其地区生产总值从2020年的1.82万亿（根据全国第五次经济普查调整后数据）增加到2025年的2.48万亿元。\n在过去5年，国家实施了建设成渝地区双城经济圈战略，目标将其打造成为带动全国高质量"
+        },
+        {
+          "rank": 3,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.00819672131147541,
+          "score_bm25": 0.0,
+          "score_vector": 58.3,
+          "keyword_recall": 0.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.0078125,
+          "score_bm25": 0.0,
+          "score_vector": 53.4,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    },
+    {
+      "id": "eval-048",
+      "language": "en",
+      "category": "project_fact",
+      "question": "Which model provider is used by the sample RAG document?",
+      "answerable": true,
+      "queries": [
+        "Which model provider is used by the sample RAG document?"
+      ],
+      "expected_sources": [
+        "sample.md"
+      ],
+      "retrieved_sources": [
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+        "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+        "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt"
+      ],
+      "source_hit": true,
+      "first_relevant_rank": 2,
+      "reciprocal_rank": 0.5,
+      "expected_keywords": [
+        "OpenAI embeddings",
+        "chat model"
+      ],
+      "keywords_found": [
+        "OpenAI embeddings",
+        "chat model"
+      ],
+      "keywords_missing": [],
+      "keyword_recall": 1.0,
+      "chunk_hit_at_1": false,
+      "chunk_hit_at_k": true,
+      "chunk_full_hit_at_1": false,
+      "chunk_full_hit_at_k": true,
+      "rank1_keyword_recall": 0.0,
+      "ndcg_at_k": 0.6309297535714575,
+      "precision_at_k": 0.25,
+      "false_positive_keywords": [],
+      "false_positive_keywords_found": [],
+      "false_positive_keywords_missing": [],
+      "unanswerable_keyword_false_positive": false,
+      "max_score_rrf": 0.023561507936507936,
+      "max_score_bm25": 93.1,
+      "max_score_vector": 59.6,
+      "top_chunks": [
+        {
+          "rank": 1,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.023561507936507936,
+          "score_bm25": 73.8,
+          "score_vector": 47.6,
+          "keyword_recall": 0.0,
+          "preview": "OMETIMES A COMPANY encapsulates its times. Ford and its Model T captured the go-getting mood of the Roaring Twenties. \nIBM embodied the techno-optimism of the first computer era in the 1970s. General Electric epitomised the cutthroat capitalism of the 1990s. For much of this century the company of t"
+        },
+        {
+          "rank": 2,
+          "source": "27c48d76-f565-422e-9b28-599d66884c1c_sample.md",
+          "score_rrf": 0.01639344262295082,
+          "score_bm25": 93.1,
+          "score_vector": 59.6,
+          "keyword_recall": 1.0,
+          "preview": "Sample Document\n\nThis is a sample markdown file for testing the RAG system.\n\nWTG.Query.RAG\n\nThis project implements a Retrieval-Augmented Generation (RAG) pipeline using LangChain. It can ingest PDF, Markdown, and plain text documents, index them into a vector store, and answer questions using an LL"
+        },
+        {
+          "rank": 3,
+          "source": "251c10d0-d160-4aa8-bbaa-0a987cb38248_sample.txt",
+          "score_rrf": 0.016001024065540194,
+          "score_bm25": 75.7,
+          "score_vector": 0.0,
+          "keyword_recall": 0.0,
+          "preview": "TO CHANNEL ONE of Elon Musk’s favourite science-fiction authors, SpaceX is a product of infinite improbability. \nWhen Mr Musk began, few would have predicted that a startup could design a liquid-fuelled rocket and put it in orbit. \nNor that an engineer would be able to get a rocket’s booster to retu"
+        },
+        {
+          "rank": 4,
+          "source": "34fb148f-8646-4178-8e47-4c4ee4602c4b_sample.txt",
+          "score_rrf": 0.008064516129032258,
+          "score_bm25": 0.0,
+          "score_vector": 48.1,
+          "keyword_recall": 0.0,
+          "preview": "Elon Zhao - Lead Software Engineer of WiseTechGlobal"
+        }
+      ]
+    }
+  ]
+}
