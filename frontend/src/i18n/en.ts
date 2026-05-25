@@ -29,6 +29,12 @@ const en = {
     clearHistory: 'Clear history',
     copyCode: 'Copy',
     copied: 'Copied!',
+    history: 'History',
+    newChat: 'New Chat',
+    noHistory: 'No conversations yet',
+    today: 'Today',
+    yesterday: 'Yesterday',
+    daysAgo: '{{count}} days ago',
   },
   documents: {
     title: 'Document Management',

@@ -29,6 +29,12 @@ const zh = {
     clearHistory: '清除历史',
     copyCode: '复制',
     copied: '已复制！',
+    history: '历史记录',
+    newChat: '新对话',
+    noHistory: '暂无对话记录',
+    today: '今天',
+    yesterday: '昨天',
+    daysAgo: '{{count}} 天前',
   },
   documents: {
     title: '文档管理',
