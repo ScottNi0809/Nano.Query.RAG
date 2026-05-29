@@ -431,6 +431,12 @@ def write_results(payload: dict[str, Any], prefix: str = "eval") -> Path:
     timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
     path = RESULTS_DIR / f"{prefix}_{timestamp}.json"
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Also persist to SQLite for history tracking
+    from app.services.eval_store import save_eval
+
+    save_eval(payload)
+
     return path
 
 

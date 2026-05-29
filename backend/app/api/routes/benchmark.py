@@ -5,7 +5,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
+
+from app.services.eval_store import get_by_id, get_history, get_latest, save_eval
 
 router = APIRouter()
 
@@ -91,3 +93,47 @@ async def run_benchmark(k: int = 4, use_query_rewrite: bool = False, seed: bool 
         newest = None
 
     return {"success": True, "filename": newest}
+
+
+# ---- SQLite-backed history endpoints ----
+
+
+@router.get("/benchmark/latest")
+async def benchmark_latest():
+    """Return the most recent eval run (full detail) from SQLite store."""
+    result = get_latest()
+    if result is None:
+        return {"error": "no evaluations found"}
+    return result
+
+
+@router.get("/benchmark/history")
+async def benchmark_history(limit: int = Query(default=20, ge=1, le=100)):
+    """Return recent eval summaries (no per-case detail) for trend display."""
+    return get_history(limit=limit)
+
+
+@router.get("/benchmark/{eval_id:int}")
+async def benchmark_detail(eval_id: int):
+    """Return the full eval result for a given SQLite row id."""
+    result = get_by_id(eval_id)
+    if result is None:
+        return {"error": "not found"}
+    return result
+
+
+@router.post("/benchmark/import")
+async def import_existing_results():
+    """One-time import: load existing JSON result files into SQLite store."""
+    if not RESULTS_DIR.is_dir():
+        return {"imported": 0}
+
+    files = sorted(RESULTS_DIR.glob("eval_*.json"))
+    imported = 0
+    for f in files:
+        data = _load_result(f)
+        if data is None:
+            continue
+        save_eval(data)
+        imported += 1
+    return {"imported": imported}
