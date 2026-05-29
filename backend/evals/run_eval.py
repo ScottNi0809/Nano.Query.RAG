@@ -459,6 +459,11 @@ async def run(args: argparse.Namespace) -> int:
         print("--compare-query-rewrite already runs both modes; omit --use-query-rewrite.", file=sys.stderr)
         return 1
 
+    if args.seed:
+        print("Seeding ChromaDB with docs/...")
+        seed_documents()
+        print()
+
     if args.compare_query_rewrite:
         baseline = await run_eval(dataset_path, args.k, use_query_rewrite=False)
         variant = await run_eval(dataset_path, args.k, use_query_rewrite=True)
@@ -503,6 +508,42 @@ async def run(args: argparse.Namespace) -> int:
     return 0
 
 
+def seed_documents() -> None:
+    """Clear ChromaDB and re-ingest all docs from the configured docs_dir.
+
+    This ensures a deterministic, reproducible vectorstore state before
+    evaluation, regardless of which machine or working directory is used.
+    """
+    from app.services.document_service import DocumentService
+    from app.services.vectorstore_service import get_vectorstore_service
+
+    settings = get_settings()
+    vectorstore_service = get_vectorstore_service()
+
+    # Clear existing collection
+    collection = vectorstore_service.vectorstore._collection
+    existing_ids = collection.get()["ids"]
+    if existing_ids:
+        collection.delete(ids=existing_ids)
+        print(f"  Cleared {len(existing_ids)} existing chunks from ChromaDB.")
+
+    # Load and ingest docs
+    doc_service = DocumentService(settings)
+    documents = doc_service.load_directory()
+    if not documents:
+        print(f"  Warning: No documents found in {settings.docs_dir}")
+        return
+
+    chunks = doc_service.split_documents(documents)
+    vectorstore_service.add_documents(chunks)
+    print(f"  Ingested {len(chunks)} chunks from {len(documents)} documents.")
+
+    # Refresh BM25 index
+    retriever = get_hybrid_retriever_service()
+    retriever.refresh_index()
+    print("  BM25 index rebuilt.")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run retrieval-level RAG evaluation.")
     parser.add_argument("--dataset", help="Path to JSONL eval dataset.")
@@ -519,6 +560,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--compare-to", help="Path to a previous eval result JSON to compare against.")
     parser.add_argument("--write-results", action="store_true", help="Write detailed JSON results to backend/evals/results/.")
+    parser.add_argument(
+        "--seed",
+        action="store_true",
+        help="Re-ingest docs/ into ChromaDB before running eval. Ensures reproducible vectorstore state.",
+    )
     return parser.parse_args()
 
 

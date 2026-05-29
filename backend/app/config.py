@@ -12,10 +12,14 @@ docs 上传目录
 '''
 
 from functools import lru_cache
+from pathlib import Path
 from typing import Literal
 
-from pydantic import Field
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Anchor all relative paths to the backend/ directory (where pyproject.toml lives)
+_BACKEND_ROOT = Path(__file__).resolve().parents[1]
 
 
 class Settings(BaseSettings):
@@ -57,6 +61,21 @@ class Settings(BaseSettings):
         "http://localhost:5174",
         "http://localhost:3000",
     ]
+
+    @model_validator(mode="after")
+    def _resolve_paths(self) -> "Settings":
+        """Resolve relative paths against _BACKEND_ROOT so that the same
+        ChromaDB and docs directory are used regardless of the working
+        directory from which the process is launched."""
+        chroma = Path(self.chroma_persist_dir)
+        if not chroma.is_absolute():
+            self.chroma_persist_dir = str((_BACKEND_ROOT / chroma).resolve())
+
+        docs = Path(self.docs_dir)
+        if not docs.is_absolute():
+            self.docs_dir = str((_BACKEND_ROOT / docs).resolve())
+
+        return self
 
 
 @lru_cache

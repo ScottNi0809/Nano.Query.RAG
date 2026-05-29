@@ -57,11 +57,17 @@ async def get_benchmark_result(filename: str):
 
 
 @router.post("/benchmark/run")
-async def run_benchmark(k: int = 4, use_query_rewrite: bool = False):
-    """Run evals/run_eval.py and return the generated result filename."""
+async def run_benchmark(k: int = 4, use_query_rewrite: bool = False, seed: bool = True):
+    """Run evals/run_eval.py and return the generated result filename.
+
+    By default, --seed is enabled to ensure ChromaDB is populated with docs/
+    before evaluation, guaranteeing reproducible results across environments.
+    """
     cmd = ["python", "evals/run_eval.py", "--k", str(k), "--write-results"]
     if use_query_rewrite:
         cmd.append("--use-query-rewrite")
+    if seed:
+        cmd.append("--seed")
 
     proc = await asyncio.create_subprocess_exec(
         *cmd,
