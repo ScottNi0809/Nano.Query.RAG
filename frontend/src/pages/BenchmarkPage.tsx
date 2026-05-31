@@ -243,6 +243,8 @@ export default function BenchmarkPage() {
   const [result, setResult] = useState<BenchmarkResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [running, setRunning] = useState(false);
+  const selectedRef = useRef(selected);
+  selectedRef.current = selected;
 
   const fetchList = useCallback(async (selectNewest = false) => {
     try {
@@ -276,7 +278,7 @@ export default function BenchmarkPage() {
       const nonComp = items.filter((i) => !i.is_comparison);
       if (isMounted) {
         setList(nonComp);
-        if (nonComp.length > 0 && !selected) {
+        if (nonComp.length > 0 && !selectedRef.current) {
           setSelected(nonComp[0].filename);
         }
       }
@@ -288,11 +290,16 @@ export default function BenchmarkPage() {
   useEffect(() => {
     if (!selected) return;
     let cancelled = false;
-    setLoading(true);
-    getBenchmarkResult(selected)
-      .then((data) => { if (!cancelled) setResult(data); })
-      .catch(() => {})
-      .finally(() => { if (!cancelled) setLoading(false); });
+    const load = async () => {
+      setLoading(true);
+      try {
+        const data = await getBenchmarkResult(selected);
+        if (!cancelled) setResult(data);
+      } catch { /* ignore */ } finally {
+        if (!cancelled) setLoading(false);
+      }
+    };
+    load();
     return () => { cancelled = true; };
   }, [selected]);
 
