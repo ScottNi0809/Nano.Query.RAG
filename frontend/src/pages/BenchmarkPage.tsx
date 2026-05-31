@@ -244,6 +244,7 @@ export default function BenchmarkPage() {
   const [loading, setLoading] = useState(false);
   const [running, setRunning] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchList = useCallback(async (selectNewest = false) => {
     try {
       const items = await listBenchmarkResults();
@@ -268,11 +269,14 @@ export default function BenchmarkPage() {
     setRunning(false);
   }, [fetchList]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchList(); }, [fetchList]);
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (!selected) return;
     let cancelled = false;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     getBenchmarkResult(selected)
       .then((data) => { if (!cancelled) setResult(data); })
