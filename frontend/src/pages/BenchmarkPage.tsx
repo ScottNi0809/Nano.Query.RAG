@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { InfoCircleOutlined, ExperimentOutlined, CheckCircleOutlined, CloseCircleOutlined, PlayCircleOutlined, LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { listBenchmarkResults, getBenchmarkResult, runBenchmark } from '@/api/benchmark';
