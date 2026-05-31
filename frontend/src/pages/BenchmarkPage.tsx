@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { InfoCircleOutlined, ExperimentOutlined, CheckCircleOutlined, CloseCircleOutlined, PlayCircleOutlined, LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { listBenchmarkResults, getBenchmarkResult, runBenchmark } from '@/api/benchmark';
@@ -243,8 +243,6 @@ export default function BenchmarkPage() {
   const [result, setResult] = useState<BenchmarkResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [running, setRunning] = useState(false);
-  const selectedRef = useRef(selected);
-  selectedRef.current = selected;
 
   const fetchList = useCallback(async (selectNewest = false) => {
     try {
@@ -278,7 +276,7 @@ export default function BenchmarkPage() {
       const nonComp = items.filter((i) => !i.is_comparison);
       if (isMounted) {
         setList(nonComp);
-        if (nonComp.length > 0 && !selectedRef.current) {
+        if (nonComp.length > 0) {
           setSelected(nonComp[0].filename);
         }
       }
@@ -291,6 +289,7 @@ export default function BenchmarkPage() {
     if (!selected) return;
     let cancelled = false;
     const load = async () => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(true);
       try {
         const data = await getBenchmarkResult(selected);
