@@ -6,6 +6,11 @@ chroma_db/
 # Backend runtime cache/db
 backend/chroma_db/
 
+# Eval outputs (tracked in SQLite now)
+backend/evals/results/*.json
+backend/evals/evals.db
+backend/app/evals/evals.db
+
 # Test temporary directories
 test_docs/
 backend/test_docs/

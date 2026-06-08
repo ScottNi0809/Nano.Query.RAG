@@ -98,3 +98,42 @@ export async function runBenchmark(k = 4, useQueryRewrite = false): Promise<RunB
   });
   return res.data;
 }
+
+// ---- SQLite-backed history API ----
+
+export interface EvalHistoryItem {
+  id: number;
+  timestamp_utc: string;
+  dataset: string;
+  k: number;
+  use_query_rewrite: boolean;
+  is_comparison: boolean;
+  git_commit: string | null;
+  llm_provider: string | null;
+  model_name: string | null;
+  embedding_model: string | null;
+  chunk_size: number | null;
+  chunk_overlap: number | null;
+  bm25_weight: number | null;
+  summary: BenchmarkSummary;
+}
+
+export async function getLatestBenchmark(): Promise<BenchmarkResult> {
+  const res = await apiClient.get('/benchmark/latest');
+  return res.data;
+}
+
+export async function getBenchmarkHistory(limit = 20): Promise<EvalHistoryItem[]> {
+  const res = await apiClient.get('/benchmark/history', { params: { limit } });
+  return res.data;
+}
+
+export async function getBenchmarkById(evalId: number): Promise<BenchmarkResult> {
+  const res = await apiClient.get(`/benchmark/${evalId}`);
+  return res.data;
+}
+
+export async function importExistingResults(): Promise<{ imported: number }> {
+  const res = await apiClient.post('/benchmark/import');
+  return res.data;
+}
