@@ -251,10 +251,10 @@ export default function BenchmarkPage() {
       setList(nonComp);
       if (selectNewest && nonComp.length > 0) {
         setSelected(nonComp[0].filename);
-      } else if (nonComp.length > 0 && !selected) {
-        setSelected(nonComp[0].filename);
       }
+      return nonComp;
     } catch { /* ignore */ }
+    return [];
   }, []);
 
   const handleRunEval = useCallback(async () => {
@@ -268,16 +268,37 @@ export default function BenchmarkPage() {
     setRunning(false);
   }, [fetchList]);
 
-  useEffect(() => { fetchList(); }, [fetchList]);
+  // Initialize on mount
+  useEffect(() => {
+    let isMounted = true;
+    const init = async () => {
+      const items = await listBenchmarkResults();
+      const nonComp = items.filter((i) => !i.is_comparison);
+      if (isMounted) {
+        setList(nonComp);
+        if (nonComp.length > 0) {
+          setSelected(nonComp[0].filename);
+        }
+      }
+    };
+    init().catch(() => { /* ignore */ });
+    return () => { isMounted = false; };
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
     let cancelled = false;
-    setLoading(true);
-    getBenchmarkResult(selected)
-      .then((data) => { if (!cancelled) setResult(data); })
-      .catch(() => {})
-      .finally(() => { if (!cancelled) setLoading(false); });
+    const load = async () => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setLoading(true);
+      try {
+        const data = await getBenchmarkResult(selected);
+        if (!cancelled) setResult(data);
+      } catch { /* ignore */ } finally {
+        if (!cancelled) setLoading(false);
+      }
+    };
+    load();
     return () => { cancelled = true; };
   }, [selected]);
 
